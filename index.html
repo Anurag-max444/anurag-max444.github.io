@@ -43,23 +43,17 @@
       100% { color: black; }
     }
 
-    h2 {
-      margin-top: 40px;
-      font-size: 28px;
+    .typewriter {
+      font-size: 24px;
+      margin-top: 30px;
+      min-height: 30px;
+      color: #444;
     }
 
     p {
       font-size: 18px;
       line-height: 1.6;
-    }
-
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      color: #333;
     }
 
     footer {
@@ -84,7 +78,6 @@
       transform: scale(1.1);
     }
 
-    /* Live time style */
     #time {
       position: fixed;
       top: 10px;
@@ -94,22 +87,33 @@
       animation: rgb 2s infinite alternate;
       z-index: 9999;
     }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Live Time in RGB -->
+  <!-- Live RGB Time -->
   <div id="time">00:00:00</div>
 
-  <!-- RGB Animated Name -->
+  <!-- Animated Name -->
   <div class="rgb-name">
     <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
     <span> </span>
     <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <!-- Titles -->
-  <h2>Web Developer • App Developer</h2>
+  <!-- Typewriter effect -->
+  <div class="typewriter" id="typewriter"></div>
+
+  <!-- About -->
   <p>Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend tech.</p>
 
   <!-- Contact -->
@@ -124,6 +128,15 @@
 
   <!-- Scripts -->
   <script>
+    // Live Time Update
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('time').textContent = timeString;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
     // Dark Mode Toggle
     const toggleBtn = document.getElementById('darkToggle');
     toggleBtn.addEventListener('click', () => {
@@ -131,15 +144,34 @@
       toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
 
-    // Live Time Update
-    function updateTime() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString();
-      document.getElementById('time').textContent = timeString;
+    // Typewriter Loop
+    const roles = ["Web Developer", "App Developer", "UI/UX Designer"];
+    let index = 0;
+    let charIndex = 0;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function typeEffect() {
+      if (charIndex < roles[index].length) {
+        typewriterElement.textContent += roles[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 100);
+      } else {
+        setTimeout(eraseEffect, 1500);
+      }
     }
 
-    setInterval(updateTime, 1000);
-    updateTime();
+    function eraseEffect() {
+      if (charIndex > 0) {
+        typewriterElement.textContent = roles[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 50);
+      } else {
+        index = (index + 1) % roles.length;
+        setTimeout(typeEffect, 300);
+      }
+    }
+
+    typeEffect();
   </script>
 </body>
 </html>
