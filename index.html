@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ayush Vishwakarma | Developer Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ayush Vishwakarma - Web & App Developer Portfolio">
+  <meta charset="UTF-8" />
+  <title>Ayush Vishwakarma | Developer</title>
+  <meta name="description" content="Ayush Vishwakarma's colorful developer portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    :root {
-      --bg: #f5f5f5;
-      --text: #222;
-      --accent: #333;
-    }
-
-    body.dark {
-      --bg: #121212;
-      --text: #eee;
-      --accent: #ccc;
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: #f5f5f5;
+      color: #222;
       text-align: center;
       padding: 50px 20px;
-      transition: background 0.4s, color 0.4s;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #eee;
     }
 
     .rgb-name span {
@@ -35,12 +28,12 @@
       animation: rgb 2s infinite alternate;
     }
 
-    .rgb-name span:nth-child(n) {
-      animation-delay: calc(0.1s * var(--i));
+    .rgb-name span:nth-child(odd) {
+      animation-delay: 0.2s;
     }
 
-    .rgb-name span {
-      --i: 0;
+    .rgb-name span:nth-child(even) {
+      animation-delay: 0.4s;
     }
 
     @keyframes rgb {
@@ -50,49 +43,32 @@
       100% { color: black; }
     }
 
-    .role-rotate {
-      font-size: 26px;
-      color: var(--accent);
-      margin-top: 30px;
-      height: 30px;
-      line-height: 30px;
-      overflow: hidden;
-      position: relative;
+    h2 {
+      margin-top: 40px;
+      font-size: 28px;
     }
-
-    .role-rotate p {
-      margin: 0;
-      animation: rotateText 8s infinite;
-      position: absolute;
-      width: 100%;
-    }
-
-    @keyframes rotateText {
-      0%, 20%   { transform: translateY(0); }
-      25%, 45%  { transform: translateY(-30px); }
-      50%, 70%  { transform: translateY(-60px); }
-      75%, 95%  { transform: translateY(-90px); }
-      100%      { transform: translateY(0); }
-    }
-
-    .role-rotate p:nth-child(1) { top: 0; }
-    .role-rotate p:nth-child(2) { top: 30px; }
-    .role-rotate p:nth-child(3) { top: 60px; }
-    .role-rotate p:nth-child(4) { top: 90px; }
 
     p {
       font-size: 18px;
       line-height: 1.6;
-      color: var(--accent);
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
       margin-top: 60px;
       font-size: 14px;
-      color: #888;
+      color: #666;
     }
 
-    /* Dark Mode Toggle */
+    /* Dark mode button style */
     #darkToggle {
       position: fixed;
       bottom: 20px;
@@ -101,30 +77,25 @@
       border: none;
       font-size: 28px;
       cursor: pointer;
+      z-index: 9999;
       transition: transform 0.2s;
     }
 
     #darkToggle:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
 
   <div class="rgb-name">
-    <span style="--i:1">A</span><span style="--i:2">y</span><span style="--i:3">u</span><span style="--i:4">s</span><span style="--i:5">h</span>
-    <span style="--i:6"> </span>
-    <span style="--i:7">V</span><span style="--i:8">i</span><span style="--i:9">s</span><span style="--i:10">h</span><span style="--i:11">w</span><span style="--i:12">a</span><span style="--i:13">k</span><span style="--i:14">a</span><span style="--i:15">r</span><span style="--i:16">m</span><span style="--i:17">a</span>
+    <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
+    <span> </span>
+    <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <div class="role-rotate">
-    <p>Web Developer</p>
-    <p>App Developer</p>
-    <p>UI/UX Designer</p>
-    <p>Backend Developer</p>
-  </div>
-
-  <p>Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites & apps using HTML, CSS, JavaScript, and backend technologies.</p>
+  <h2>Web Developer • App Developer</h2>
+  <p>Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend tech.</p>
 
   <p>📧 Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
   <p>📱 Telegram: <a href="https://t.me/ayushstudent444" target="_blank">@ayushstudent444</a></p>
@@ -133,20 +104,15 @@
     &copy; 2025 Ayush Vishwakarma
   </footer>
 
-  <!-- Dark Mode Toggle Button -->
+  <!-- 🌙 Dark Mode Button -->
   <button id="darkToggle" title="Toggle dark mode">🌙</button>
 
   <script>
-    const toggle = document.getElementById('darkToggle');
-    const body = document.body;
-    let dark = false;
-
-    toggle.addEventListener('click', () => {
-      dark = !dark;
-      body.classList.toggle('dark');
-      toggle.textContent = dark ? '☀️' : '🌙';
+    const toggleBtn = document.getElementById('darkToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
   </script>
-
 </body>
 </html>
