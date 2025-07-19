@@ -79,7 +79,9 @@
     }
 
     .contact-icons a {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: 10px auto;
       text-decoration: none;
       color: inherit;
@@ -90,6 +92,12 @@
     .contact-icons i {
       margin-right: 8px;
       transition: transform 0.3s, color 0.3s;
+      font-size: 26px;
+    }
+
+    .contact-icons a span {
+      font-size: 16px;
+      margin-left: 5px;
     }
 
     .contact-icons a:hover i {
@@ -163,10 +171,10 @@
 
   <div class="contact-icons">
     <a href="mailto:aashishvishwakarma6233@gmail.com" target="_blank">
-      <i class="fas fa-envelope"></i> Email<br> aashishvishwakarma6233@gmail.com
+      <i class="fas fa-envelope"></i> <span>Email:</span><span> aashishvishwakarma6233@gmail.com</span>
     </a>
     <a href="https://t.me/ayushstudent444" target="_blank">
-      <i class="fab fa-telegram"></i> Telegram<br> https://t.me/ayushstudent444
+      <i class="fab fa-telegram"></i> <span>Telegram:</span><span> https://t.me/ayushstudent444</span>
     </a>
   </div>
 
