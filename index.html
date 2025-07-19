@@ -12,6 +12,7 @@
       --text-light: #222;
       --bg-dark: #111;
       --text-dark: #fff;
+      --metal-gradient: linear-gradient(135deg, gold, black);
     }
 
     body {
@@ -75,29 +76,31 @@
     }
 
     .contact-icons {
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 18px;
     }
 
     .contact-icons a {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       margin: 10px auto;
+      padding: 10px;
+      width: fit-content;
+      border-radius: 10px;
+      background: var(--metal-gradient);
+      color: white;
       text-decoration: none;
-      color: inherit;
-      transition: color 0.3s;
-      font-size: 24px;
+      font-size: 18px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
     }
 
     .contact-icons i {
       margin-right: 8px;
-      transition: transform 0.3s, color 0.3s;
-      font-size: 30px;
+      font-size: 26px;
     }
 
-    .contact-icons a span {
-      font-size: 16px;
+    .contact-icons span {
       margin-left: 5px;
     }
 
@@ -138,7 +141,7 @@
 
     #resume {
       position: fixed;
-      bottom: 80px;
+      bottom: 130px;
       left: 20px;
       background: #007BFF;
       color: white;
@@ -167,8 +170,12 @@
   <div class="title-loop" id="loopTitle">Web Developer</div>
 
   <div class="intro">
-    I build modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
+    Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
   </div>
+
+  <a id="resume" href="resume.pdf" download>
+    <i class="fas fa-download"></i> Download Resume
+  </a>
 
   <div class="contact-icons">
     <a href="mailto:aashishvishwakarma6233@gmail.com" target="_blank">
@@ -178,10 +185,6 @@
       <i class="fab fa-telegram"></i> <span>Telegram:</span><span> https://t.me/ayushstudent444</span>
     </a>
   </div>
-
-  <a id="resume" href="resume.pdf" download>
-    <i class="fas fa-download"></i> Download Resume
-  </a>
 
   <footer>&copy; 2025 Ayush Vishwakarma</footer>
 
