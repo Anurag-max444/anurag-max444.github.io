@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ayush Vishwakarma | Developer Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ayush Vishwakarma's colorful web developer portfolio" />
+  <meta charset="UTF-8">
+  <title>Ayush Vishwakarma | Portfolio</title>
+  <meta name="description" content="Ayush Vishwakarma's colorful developer portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --text-light: #222;
+      --bg-dark: #111;
+      --text-dark: #fff;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      color: #222;
+      background-color: var(--bg-light);
+      color: var(--text-light);
       text-align: center;
       padding: 50px 20px;
-      transition: background 0.3s, color 0.3s;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark-mode {
-      background-color: #121212;
-      color: white;
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     .rgb-name span {
@@ -26,11 +35,6 @@
       font-weight: bold;
       display: inline-block;
       animation: rgb 2s infinite alternate;
-    }
-
-    body.dark-mode .rgb-name span {
-      animation: none;
-      color: white;
     }
 
     .rgb-name span:nth-child(odd) {
@@ -48,170 +52,141 @@
       100% { color: black; }
     }
 
-    p {
+    .dark-mode .rgb-name span {
+      animation: none;
+      color: white;
+    }
+
+    .title-loop {
+      font-size: 24px;
+      margin-top: 20px;
+      font-weight: bold;
+      height: 30px;
+    }
+
+    .contact-icons {
+      margin-top: 30px;
       font-size: 18px;
-      line-height: 1.6;
-      color: inherit;
     }
 
-    a {
-      color: blue;
+    .contact-icons a {
+      display: block;
+      margin: 10px;
       text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
     }
 
-    body.dark-mode a {
-      color: lightblue;
+    .contact-icons i {
+      margin-right: 8px;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .contact-icons a:hover i {
+      transform: scale(1.2);
+      color: #ff6f00; /* Bhagwa Color */
     }
 
     footer {
       margin-top: 60px;
       font-size: 14px;
-      color: inherit;
+      color: #666;
     }
 
     #darkToggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      font-size: 20px;
-      cursor: pointer;
-      padding: 10px 15px;
-      background: #333;
+      background: #444;
       color: white;
       border: none;
+      padding: 10px;
       border-radius: 50%;
-      z-index: 1000;
-    }
-
-    #clock {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      font-size: 16px;
-      color: inherit;
-    }
-
-    .typing {
-      margin-top: 20px;
-      font-size: 22px;
-      font-weight: 600;
-      color: #007acc;
-      height: 30px;
-    }
-
-    body.dark-mode .typing {
-      color: lightgreen;
-    }
-
-    .desc-line {
-      margin-top: 20px;
       font-size: 18px;
-      color: inherit;
+      cursor: pointer;
     }
 
-    .resume-fixed {
+    #timeDisplay {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+
+    #resume {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      z-index: 999;
-    }
-
-    .resume-fixed a {
-      font-size: 16px;
-      text-decoration: none;
-      background: #007acc;
+      background: #007BFF;
       color: white;
-      padding: 10px 15px;
-      border-radius: 6px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
       transition: background 0.3s;
     }
 
-    .resume-fixed a:hover {
-      background: #005f99;
+    #resume:hover {
+      background: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <!-- Live Clock -->
-  <div id="clock">Loading time...</div>
+  <div id="timeDisplay"></div>
 
-  <!-- RGB Name -->
   <div class="rgb-name">
     <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
     <span> </span>
     <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <!-- Typing Loop -->
-  <div class="typing" id="typing-text"></div>
+  <div class="title-loop" id="loopTitle">Web Developer</div>
 
-  <!-- Description -->
-  <div class="desc-line">
-    Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
+  <div class="contact-icons">
+    <a href="mailto:aashishvishwakarma6233@gmail.com" target="_blank">
+      <i class="fas fa-envelope"></i> Email: aashishvishwakarma6233@gmail.com
+    </a>
+    <a href="https://t.me/ayushstudent444" target="_blank">
+      <i class="fab fa-telegram"></i> Telegram: @ayushstudent444
+    </a>
   </div>
 
-  <!-- Contact Info -->
-  <p>📧 Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
-  <p>📱 Telegram: <a href="https://t.me/ayushstudent444" target="_blank">@ayushstudent444</a></p>
+  <footer>&copy; 2025 Ayush Vishwakarma</footer>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Ayush Vishwakarma
-  </footer>
+  <a id="resume" href="resume.pdf" download>
+    <i class="fas fa-download"></i> Download Resume
+  </a>
 
-  <!-- Resume Button -->
-  <div class="resume-fixed">
-    <a href="resume.pdf" download>📄 Download Resume</a>
-  </div>
+  <button id="darkToggle" onclick="toggleDarkMode()">
+    🌙
+  </button>
 
-  <!-- Dark Mode Button -->
-  <button id="darkToggle" onclick="toggleDarkMode()">🌓</button>
-
-  <!-- JS Script -->
   <script>
-    // Dark Mode Toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
+    // Looping titles
+    const titles = ["Web Developer", "App Developer", "UI/UX Designer"];
+    let i = 0;
+    setInterval(() => {
+      document.getElementById("loopTitle").textContent = titles[i];
+      i = (i + 1) % titles.length;
+    }, 2000);
 
-    // Clock Update
-    function updateClock() {
+    // Time updater
+    function updateTime() {
       const now = new Date();
-      document.getElementById('clock').textContent = now.toLocaleTimeString();
+      document.getElementById("timeDisplay").textContent = now.toLocaleTimeString();
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+    setInterval(updateTime, 1000);
+    updateTime();
 
-    // Typing Loop
-    const typingElement = document.getElementById("typing-text");
-    const phrases = ["Web Developer", "App Developer", "UI/UX Designer"];
-    let phraseIndex = 0;
-    let letterIndex = 0;
-    let isDeleting = false;
-
-    function typeLoop() {
-      const current = phrases[phraseIndex];
-      if (isDeleting) {
-        letterIndex--;
-        typingElement.textContent = current.slice(0, letterIndex);
-      } else {
-        letterIndex++;
-        typingElement.textContent = current.slice(0, letterIndex);
-      }
-
-      if (!isDeleting && letterIndex === current.length) {
-        isDeleting = true;
-        setTimeout(typeLoop, 1000);
-      } else if (isDeleting && letterIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(typeLoop, 500);
-      } else {
-        setTimeout(typeLoop, 100);
-      }
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
     }
-    typeLoop();
   </script>
 
 </body>
