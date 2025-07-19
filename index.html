@@ -2,66 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ayush | Developer Portfolio</title>
-  <meta name="description" content="Ayush's official developer portfolio - frontend, backend, web lover.">
+  <title>Ayush | Web Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f4;
       margin: 0;
       padding: 0;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #fff;
     }
+
     header {
-      background: #121212;
-      color: white;
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 42px;
-    }
-    header p {
-      font-size: 18px;
-      color: #cccccc;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #444;
+
+    h1 {
+      font-size: 48px;
       margin-bottom: 10px;
     }
+
+    .typing {
+      font-size: 20px;
+      color: #ffcc70;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 300px }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 40px auto;
+      max-width: 700px;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      color: #ffd369;
+    }
+
     p {
       line-height: 1.6;
+      font-size: 16px;
     }
-    .profile-pic {
-      display: block;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      background: #ddd url('https://via.placeholder.com/120') center/cover no-repeat;
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ffcc70;
+      color: #000;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
-      color: #777;
-    }
-    a {
-      color: #1e88e5;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      color: #cccccc;
     }
   </style>
 </head>
@@ -69,21 +83,18 @@
 
   <header>
     <h1>Ayush</h1>
-    <p>Web Developer | Frontend & Backend | Problem Solver</p>
+    <div class="typing">Web Developer | Frontend & Backend</div>
   </header>
 
   <div class="container">
-    <div class="profile-pic"></div>
-
     <h2>About Me</h2>
-    <p>Hi, I'm <strong>Ayush</strong> – a passionate web developer who loves building clean, modern, and responsive websites. I specialize in HTML, CSS, JavaScript, and backend integration.</p>
+    <p>Hello! I'm <strong>Ayush</strong>, a passionate developer who builds beautiful, fast, and responsive websites. I love working with HTML, CSS, JavaScript, and learning backend stuff!</p>
 
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:Aashishvishwakarma6233@gmail.com">Aashishvishwakarma6233@gmail.com</a></p>
+    <a class="btn" href="contact.html">Contact Me</a>
   </div>
 
   <footer>
-    &copy; 2025 Ayush. Built with ❤️ using GitHub Pages.
+    &copy; 2025 Ayush. Built with ❤️ on GitHub Pages.
   </footer>
 
 </body>
