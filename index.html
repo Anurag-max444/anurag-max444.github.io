@@ -48,12 +48,6 @@
       100% { color: black; }
     }
 
-    h2 {
-      font-size: 28px;
-      margin-top: 30px;
-      color: inherit;
-    }
-
     p {
       font-size: 18px;
       line-height: 1.6;
@@ -115,7 +109,6 @@
       color: inherit;
     }
 
-    /* Resume icon bottom-left */
     .resume-fixed {
       position: fixed;
       bottom: 20px;
@@ -150,43 +143,42 @@
     <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <h2>I'm Ayush – a passionate developer</h2>
-
   <!-- Typing Loop -->
   <div class="typing" id="typing-text"></div>
 
-  <!-- Description Line -->
+  <!-- Description -->
   <div class="desc-line">
     Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
   </div>
 
+  <!-- Contact Info -->
   <p>📧 Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
   <p>📱 Telegram: <a href="https://t.me/ayushstudent444" target="_blank">@ayushstudent444</a></p>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 Ayush Vishwakarma
   </footer>
 
-  <!-- Resume Button Fixed -->
+  <!-- Resume Button -->
   <div class="resume-fixed">
     <a href="resume.pdf" download>📄 Download Resume</a>
   </div>
 
-  <!-- Dark Mode Toggle -->
+  <!-- Dark Mode Button -->
   <button id="darkToggle" onclick="toggleDarkMode()">🌓</button>
 
-  <!-- JavaScript -->
+  <!-- JS Script -->
   <script>
-    // Dark Mode
+    // Dark Mode Toggle
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
 
-    // Clock
+    // Clock Update
     function updateClock() {
       const now = new Date();
-      const timeStr = now.toLocaleTimeString();
-      document.getElementById('clock').textContent = timeStr;
+      document.getElementById('clock').textContent = now.toLocaleTimeString();
     }
     setInterval(updateClock, 1000);
     updateClock();
@@ -199,16 +191,16 @@
     let isDeleting = false;
 
     function typeLoop() {
-      const currentPhrase = phrases[phraseIndex];
+      const current = phrases[phraseIndex];
       if (isDeleting) {
         letterIndex--;
-        typingElement.textContent = currentPhrase.slice(0, letterIndex);
+        typingElement.textContent = current.slice(0, letterIndex);
       } else {
         letterIndex++;
-        typingElement.textContent = currentPhrase.slice(0, letterIndex);
+        typingElement.textContent = current.slice(0, letterIndex);
       }
 
-      if (!isDeleting && letterIndex === currentPhrase.length) {
+      if (!isDeleting && letterIndex === current.length) {
         isDeleting = true;
         setTimeout(typeLoop, 1000);
       } else if (isDeleting && letterIndex === 0) {
@@ -221,5 +213,6 @@
     }
     typeLoop();
   </script>
+
 </body>
 </html>
