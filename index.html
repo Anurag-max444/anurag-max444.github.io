@@ -46,7 +46,7 @@
 
     @keyframes rgb {
       0% { color: red; }
-      33% { color: orange; }
+      33% { color: green; }
       66% { color: blue; }
       100% { color: black; }
     }
@@ -61,6 +61,7 @@
       margin-top: 20px;
       font-weight: bold;
       height: 30px;
+      transition: all 0.3s ease;
     }
 
     .intro {
@@ -74,7 +75,7 @@
     }
 
     .contact-icons {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 18px;
     }
 
@@ -92,7 +93,7 @@
     .contact-icons i {
       margin-right: 8px;
       transition: transform 0.3s, color 0.3s;
-      font-size: 26px;
+      font-size: 30px;
     }
 
     .contact-icons a span {
@@ -102,7 +103,7 @@
 
     .contact-icons a:hover i {
       transform: scale(1.2);
-      color: #ff6f00;
+      color: orange;
     }
 
     footer {
@@ -137,7 +138,7 @@
 
     #resume {
       position: fixed;
-      bottom: 20px;
+      bottom: 80px;
       left: 20px;
       background: #007BFF;
       color: white;
@@ -166,7 +167,7 @@
   <div class="title-loop" id="loopTitle">Web Developer</div>
 
   <div class="intro">
-    Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
+    I build modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
   </div>
 
   <div class="contact-icons">
@@ -178,11 +179,11 @@
     </a>
   </div>
 
-  <footer>&copy; 2025 Ayush Vishwakarma</footer>
-
   <a id="resume" href="resume.pdf" download>
     <i class="fas fa-download"></i> Download Resume
   </a>
+
+  <footer>&copy; 2025 Ayush Vishwakarma</footer>
 
   <button id="darkToggle" onclick="toggleDarkMode()">🌙</button>
 
@@ -202,7 +203,18 @@
     updateTime();
 
     function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
+      const body = document.body;
+      const nameSpans = document.querySelectorAll('.rgb-name span');
+      body.classList.toggle("dark-mode");
+      nameSpans.forEach(span => {
+        if (body.classList.contains("dark-mode")) {
+          span.style.animation = "none";
+          span.style.color = "white";
+        } else {
+          span.style.animation = "rgb 2s infinite alternate";
+          span.style.color = "";
+        }
+      });
     }
   </script>
 
