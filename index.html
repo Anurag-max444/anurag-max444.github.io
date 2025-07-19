@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ayush Vishwakarma | Web Developer</title>
-  <meta name="description" content="Ayush Vishwakarma's colorful web developer portfolio">
+  <title>Ayush Vishwakarma | Developer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ayush Vishwakarma - Web & App Developer Portfolio">
   <style>
     body {
       margin: 0;
@@ -47,10 +47,55 @@
       100% { color: black; }
     }
 
-    h2 {
-      margin-top: 40px;
-      font-size: 28px;
-      color: #444;
+    .role {
+      font-size: 26px;
+      color: #555;
+      margin-top: 30px;
+      height: 30px;
+      overflow: hidden;
+    }
+
+    .role span {
+      display: inline-block;
+      animation: typing 12s steps(30) infinite;
+      white-space: nowrap;
+      border-right: 2px solid #444;
+    }
+
+    @keyframes typing {
+      0% { content: "Web Developer"; }
+      0%   { transform: translateY(0%); }
+      25%  { transform: translateY(-100%); }
+      50%  { transform: translateY(-200%); }
+      75%  { transform: translateY(-300%); }
+      100% { transform: translateY(0%); }
+    }
+
+    .role-rotate {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-rotate div {
+      position: absolute;
+      width: 100%;
+      animation: rotateText 8s infinite;
+    }
+
+    @keyframes rotateText {
+      0%, 20%   { transform: translateY(0); }
+      25%, 45%  { transform: translateY(-30px); }
+      50%, 70%  { transform: translateY(-60px); }
+      75%, 95%  { transform: translateY(-90px); }
+      100%      { transform: translateY(0); }
+    }
+
+    .role-rotate div p {
+      margin: 0;
+      height: 30px;
     }
 
     p {
@@ -74,8 +119,16 @@
     <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <h2>Web Developer</h2>
-  <p>Hi, I'm Ayush – a passionate web developer who loves building modern, clean, and creative websites using HTML, CSS, JavaScript, and backend technologies.</p>
+  <div class="role-rotate">
+    <div>
+      <p>Web Developer</p>
+      <p>App Developer</p>
+      <p>UI/UX Designer</p>
+      <p>Backend Developer</p>
+    </div>
+  </div>
+
+  <p>Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites & apps using HTML, CSS, JavaScript, and backend technologies.</p>
 
   <p>📧 Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
   <p>📱 Telegram: <a href="https://t.me/ayushstudent444" target="_blank">@ayushstudent444</a></p>
