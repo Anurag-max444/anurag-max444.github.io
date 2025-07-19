@@ -21,7 +21,6 @@
       color: white;
     }
 
-    /* RGB Name */
     .rgb-name span {
       font-size: 40px;
       font-weight: bold;
@@ -76,7 +75,6 @@
       color: inherit;
     }
 
-    /* Dark mode button */
     #darkToggle {
       position: fixed;
       bottom: 20px;
@@ -91,7 +89,6 @@
       z-index: 1000;
     }
 
-    /* Clock */
     #clock {
       position: fixed;
       top: 10px;
@@ -100,7 +97,6 @@
       color: inherit;
     }
 
-    /* Typing loop */
     .typing {
       margin-top: 20px;
       font-size: 22px;
@@ -113,25 +109,33 @@
       color: lightgreen;
     }
 
-    /* Resume Icon */
-    .resume {
-      margin-top: 30px;
+    .desc-line {
+      margin-top: 20px;
+      font-size: 18px;
+      color: inherit;
     }
 
-    .resume a {
-      font-size: 20px;
+    /* Resume icon bottom-left */
+    .resume-fixed {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999;
+    }
+
+    .resume-fixed a {
+      font-size: 16px;
       text-decoration: none;
       background: #007acc;
       color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
+      padding: 10px 15px;
+      border-radius: 6px;
       transition: background 0.3s;
     }
 
-    .resume a:hover {
+    .resume-fixed a:hover {
       background: #005f99;
     }
-
   </style>
 </head>
 <body>
@@ -148,32 +152,37 @@
 
   <h2>I'm Ayush – a passionate developer</h2>
 
-  <!-- Looping Text -->
+  <!-- Typing Loop -->
   <div class="typing" id="typing-text"></div>
+
+  <!-- Description Line -->
+  <div class="desc-line">
+    Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
+  </div>
 
   <p>📧 Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
   <p>📱 Telegram: <a href="https://t.me/ayushstudent444" target="_blank">@ayushstudent444</a></p>
-
-  <!-- Resume -->
-  <div class="resume">
-    <a href="resume.pdf" download>📄 Download Resume</a>
-  </div>
 
   <footer>
     &copy; 2025 Ayush Vishwakarma
   </footer>
 
+  <!-- Resume Button Fixed -->
+  <div class="resume-fixed">
+    <a href="resume.pdf" download>📄 Download Resume</a>
+  </div>
+
   <!-- Dark Mode Toggle -->
   <button id="darkToggle" onclick="toggleDarkMode()">🌓</button>
 
-  <!-- JavaScript Section -->
+  <!-- JavaScript -->
   <script>
     // Dark Mode
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
 
-    // Live Clock
+    // Clock
     function updateClock() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString();
@@ -182,7 +191,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Typing loop
+    // Typing Loop
     const typingElement = document.getElementById("typing-text");
     const phrases = ["Web Developer", "App Developer", "UI/UX Designer"];
     let phraseIndex = 0;
