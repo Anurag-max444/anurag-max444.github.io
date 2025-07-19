@@ -5,8 +5,7 @@
   <title>Ayush Vishwakarma | Portfolio</title>
   <meta name="description" content="Ayush Vishwakarma's colorful developer portfolio">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg-light: #f5f5f5;
@@ -94,7 +93,7 @@
 
     .contact-icons a:hover i {
       transform: scale(1.2);
-      color: #ff6f00; /* Bhagwa Color */
+      color: #ff6f00;
     }
 
     footer {
@@ -170,4 +169,33 @@
     </a>
   </div>
 
-  <footer>&copy; 2025 Ayush
+  <footer>&copy; 2025 Ayush Vishwakarma</footer>
+
+  <a id="resume" href="resume.pdf" download>
+    <i class="fas fa-download"></i> Download Resume
+  </a>
+
+  <button id="darkToggle" onclick="toggleDarkMode()">🌙</button>
+
+  <script>
+    const titles = ["Web Developer", "App Developer", "UI/UX Designer"];
+    let i = 0;
+    setInterval(() => {
+      document.getElementById("loopTitle").textContent = titles[i];
+      i = (i + 1) % titles.length;
+    }, 2000);
+
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("timeDisplay").textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>
