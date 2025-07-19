@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ayush Vishwakarma | Developer</title>
-  <meta name="description" content="Ayush Vishwakarma's colorful developer portfolio" />
+  <title>Ayush Vishwakarma | Developer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ayush Vishwakarma's colorful web developer portfolio" />
   <style>
     body {
       margin: 0;
@@ -13,19 +13,25 @@
       color: #222;
       text-align: center;
       padding: 50px 20px;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
-    .dark-mode {
+    body.dark-mode {
       background-color: #121212;
-      color: #eee;
+      color: white;
     }
 
+    /* RGB Name */
     .rgb-name span {
       font-size: 40px;
       font-weight: bold;
       display: inline-block;
       animation: rgb 2s infinite alternate;
+    }
+
+    body.dark-mode .rgb-name span {
+      animation: none;
+      color: white;
     }
 
     .rgb-name span:nth-child(odd) {
@@ -43,135 +49,168 @@
       100% { color: black; }
     }
 
-    .typewriter {
-      font-size: 24px;
+    h2 {
+      font-size: 28px;
       margin-top: 30px;
-      min-height: 30px;
-      color: #444;
+      color: inherit;
     }
 
     p {
       font-size: 18px;
       line-height: 1.6;
-      color: #333;
+      color: inherit;
+    }
+
+    a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    body.dark-mode a {
+      color: lightblue;
     }
 
     footer {
       margin-top: 60px;
       font-size: 14px;
-      color: #666;
+      color: inherit;
     }
 
+    /* Dark mode button */
     #darkToggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: none;
-      border: none;
-      font-size: 28px;
+      font-size: 20px;
       cursor: pointer;
-      z-index: 9999;
-      transition: transform 0.2s;
+      padding: 10px 15px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      z-index: 1000;
     }
 
-    #darkToggle:hover {
-      transform: scale(1.1);
-    }
-
-    #time {
+    /* Clock */
+    #clock {
       position: fixed;
       top: 10px;
       right: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      animation: rgb 2s infinite alternate;
-      z-index: 9999;
+      font-size: 16px;
+      color: inherit;
     }
 
-    a {
-      color: #007bff;
+    /* Typing loop */
+    .typing {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #007acc;
+      height: 30px;
+    }
+
+    body.dark-mode .typing {
+      color: lightgreen;
+    }
+
+    /* Resume Icon */
+    .resume {
+      margin-top: 30px;
+    }
+
+    .resume a {
+      font-size: 20px;
       text-decoration: none;
+      background: #007acc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .resume a:hover {
+      background: #005f99;
     }
+
   </style>
 </head>
 <body>
 
-  <!-- Live RGB Time -->
-  <div id="time">00:00:00</div>
+  <!-- Live Clock -->
+  <div id="clock">Loading time...</div>
 
-  <!-- Animated Name -->
+  <!-- RGB Name -->
   <div class="rgb-name">
     <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
     <span> </span>
     <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <!-- Typewriter effect -->
-  <div class="typewriter" id="typewriter"></div>
+  <h2>I'm Ayush – a passionate developer</h2>
 
-  <!-- About -->
-  <p>Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend tech.</p>
+  <!-- Looping Text -->
+  <div class="typing" id="typing-text"></div>
 
-  <!-- Contact -->
   <p>📧 Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
   <p>📱 Telegram: <a href="https://t.me/ayushstudent444" target="_blank">@ayushstudent444</a></p>
 
-  <!-- Footer -->
-  <footer>&copy; 2025 Ayush Vishwakarma</footer>
+  <!-- Resume -->
+  <div class="resume">
+    <a href="resume.pdf" download>📄 Download Resume</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Ayush Vishwakarma
+  </footer>
 
   <!-- Dark Mode Toggle -->
-  <button id="darkToggle" title="Toggle dark mode">🌙</button>
+  <button id="darkToggle" onclick="toggleDarkMode()">🌓</button>
 
-  <!-- Scripts -->
+  <!-- JavaScript Section -->
   <script>
-    // Live Time Update
-    function updateTime() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString();
-      document.getElementById('time').textContent = timeString;
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
-
-    // Dark Mode Toggle
-    const toggleBtn = document.getElementById('darkToggle');
-    toggleBtn.addEventListener('click', () => {
+    // Dark Mode
+    function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    });
-
-    // Typewriter Loop
-    const roles = ["Web Developer", "App Developer", "UI/UX Designer"];
-    let index = 0;
-    let charIndex = 0;
-    const typewriterElement = document.getElementById("typewriter");
-
-    function typeEffect() {
-      if (charIndex < roles[index].length) {
-        typewriterElement.textContent += roles[index].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeEffect, 100);
-      } else {
-        setTimeout(eraseEffect, 1500);
-      }
     }
 
-    function eraseEffect() {
-      if (charIndex > 0) {
-        typewriterElement.textContent = roles[index].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseEffect, 50);
+    // Live Clock
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString();
+      document.getElementById('clock').textContent = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Typing loop
+    const typingElement = document.getElementById("typing-text");
+    const phrases = ["Web Developer", "App Developer", "UI/UX Designer"];
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentPhrase = phrases[phraseIndex];
+      if (isDeleting) {
+        letterIndex--;
+        typingElement.textContent = currentPhrase.slice(0, letterIndex);
       } else {
-        index = (index + 1) % roles.length;
-        setTimeout(typeEffect, 300);
+        letterIndex++;
+        typingElement.textContent = currentPhrase.slice(0, letterIndex);
+      }
+
+      if (!isDeleting && letterIndex === currentPhrase.length) {
+        isDeleting = true;
+        setTimeout(typeLoop, 1000);
+      } else if (isDeleting && letterIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeLoop, 500);
+      } else {
+        setTimeout(typeLoop, 100);
       }
     }
-
-    typeEffect();
+    typeLoop();
   </script>
 </body>
 </html>
