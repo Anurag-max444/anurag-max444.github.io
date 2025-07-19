@@ -1,84 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+  <meta charset="UTF-8">
   <title>Ayush Vishwakarma | Web Developer</title>
-  <meta name="description" content="Ayush Vishwakarma - Full Stack Web Developer, HTML, CSS, JavaScript, GitHub portfolio. See projects and contact now.">
-  <meta name="keywords" content="Ayush Vishwakarma, Web Developer, HTML, CSS, JavaScript, GitHub Pages, Portfolio">
-  <meta name="author" content="Ayush Vishwakarma">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ayush Vishwakarma | Developer</title>
+  <meta name="description" content="Ayush Vishwakarma's colorful web developer portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f0f0f;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #222;
       text-align: center;
+      padding: 50px 20px;
     }
 
-    .rainbow-text {
-      font-size: 3em;
+    .rgb-name span {
+      font-size: 40px;
       font-weight: bold;
-      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 6s linear infinite;
-      margin-bottom: 20px;
+      display: inline-block;
+      animation: rgb 2s infinite alternate;
     }
 
-    @keyframes rainbow {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
+    .rgb-name span:nth-child(odd) {
+      animation-delay: 0.2s;
     }
 
-    .tagline {
-      font-size: 1.2em;
-      color: #aaa;
-      margin-bottom: 30px;
+    .rgb-name span:nth-child(even) {
+      animation-delay: 0.4s;
     }
 
-    .contact {
-      font-size: 1em;
+    @keyframes rgb {
+      0% { color: red; }
+      33% { color: green; }
+      66% { color: blue; }
+      100% { color: black; }
     }
 
-    .contact a {
-      color: #1e90ff;
-      text-decoration: none;
+    h2 {
+      margin-top: 40px;
+      font-size: 28px;
+      color: #444;
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8em;
-      color: #555;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="rainbow-text">Ayush Vishwakarma</div>
-  <div class="tagline">Web Developer | Frontend & Backend Enthusiast</div>
-  <div class="contact">
-    Contact me: 
-    <a href="mailto:Aashishvishwakarma6233@gmail.com">Aashishvishwakarma6233@gmail.com</a>
+
+  <div class="rgb-name">
+    <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
+    <span> </span>
+    <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
-  <footer>&copy; 2025 Ayush. Built with ❤️ using GitHub Pages.</footer>
+
+  <h2>Web Developer</h2>
+  <p>Hi, I'm Ayush – a passionate web developer who loves building modern, clean, and creative websites using HTML, CSS, JavaScript, and backend technologies.</p>
+
+  <p>Email: <a href="mailto:aashishvishwakarma6233@gmail.com">aashishvishwakarma6233@gmail.com</a></p>
+
+  <footer>
+    &copy; 2025 Ayush Vishwakarma
+  </footer>
+
 </body>
 </html>
