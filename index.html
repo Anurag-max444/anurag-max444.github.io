@@ -187,10 +187,25 @@
       color: #ff6347;
       text-decoration: underline;
     }
+
+    .notify {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #00ff88;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
   <div id="timeDisplay"></div>
+  <div class="notify" id="notify"></div>
 
   <div class="rgb-name">
     <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
@@ -219,11 +234,11 @@
 
   <div class="pdf-links" id="pdfSection">
     <ul>
-      <li><a href="pdfs/Physics%207%20sets%202025%20PYQs%20UP%20board%20merged.pdf" target="_blank">📄 Physics PYQs</a></li>
-      <li><a href="pdfs/Chemistry%207%20sets%202025%20PYQs%20UP%20board%20merged.pdf" target="_blank">📄 Chemistry PYQs</a></li>
-      <li><a href="pdfs/Mathematics%207%20sets%202025%20PYQs%20UP%20board%20merged.pdf" target="_blank">📄 Mathematics PYQs</a></li>
-      <li><a href="pdfs/G%20Hindi%207%20sets%20PYQs%20UP%20board%20merged.pdf" target="_blank">📄 General Hindi PYQs</a></li>
-      <li><a href="pdfs/English%208%20sets%202025%20PYQs%20UP%20board%20merged.pdf" target="_blank">📄 English PYQs</a></li>
+      <li><a href="pdfs/Physics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
+      <li><a href="pdfs/Chemistry 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
+      <li><a href="pdfs/Mathematics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
+      <li><a href="pdfs/G Hindi 7 sets PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
+      <li><a href="pdfs/English 8 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
     </ul>
   </div>
 
@@ -264,6 +279,22 @@
     function togglePDFs() {
       const section = document.getElementById("pdfSection");
       section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function notifyDownload(link) {
+      const notify = document.getElementById("notify");
+      notify.innerText = "⏳ Toda wait kr bhai...";
+      notify.style.display = "block";
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.download = '';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        notify.innerText = "✅ Ho gaya bhai!";
+        setTimeout(() => notify.style.display = "none", 2000);
+      }, 1500);
     }
   </script>
 </body>
