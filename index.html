@@ -1,101 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ayush Vishwakarma | Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ayush's personal portfolio website. Passionate web developer.">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f4;
       margin: 0;
       padding: 0;
-      color: #333;
-    }
-    header {
-      background: #121212;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
       color: white;
-      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
     }
+
     .rainbow-text {
-      animation: rainbow 3s linear infinite;
+      font-size: 3em;
       font-weight: bold;
-      font-size: 40px;
-      margin: 0;
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 6s linear infinite;
+      margin-bottom: 20px;
     }
+
     @keyframes rainbow {
-      0% { color: red; }
-      16% { color: orange; }
-      32% { color: yellow; }
-      48% { color: green; }
-      64% { color: blue; }
-      80% { color: indigo; }
-      100% { color: violet; }
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
     }
-    header p {
-      font-size: 18px;
-      color: #cccccc;
+
+    .tagline {
+      font-size: 1.2em;
+      color: #aaa;
+      margin-bottom: 30px;
     }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    .contact {
+      font-size: 1em;
     }
-    h2 {
-      color: #444;
-      margin-bottom: 10px;
-    }
-    p {
-      line-height: 1.6;
-    }
-    .profile-pic {
-      display: block;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      background: #ddd url('https://via.placeholder.com/120') center/cover no-repeat;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
-    a {
-      color: #1e88e5;
+
+    .contact a {
+      color: #1e90ff;
       text-decoration: none;
     }
-    a:hover {
+
+    .contact a:hover {
       text-decoration: underline;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1 class="rainbow-text">Ayush Vishwakarma</h1>
-    <p>Web Developer | Frontend & Backend | Creative Coder</p>
-  </header>
-
-  <div class="container">
-    <div class="profile-pic"></div>
-
-    <h2>About Me</h2>
-    <p>Hello! I'm <strong>Ayush</strong> – a passionate and self-taught web developer who loves building clean, fast, and responsive websites. I enjoy working on both frontend and backend technologies.</p>
-
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:Aashishvishwakarma6233@gmail.com">Aashishvishwakarma6233@gmail.com</a></p>
+  <div class="rainbow-text">Ayush Vishwakarma</div>
+  <div class="tagline">Web Developer | Frontend & Backend Enthusiast</div>
+  <div class="contact">
+    Contact me: 
+    <a href="mailto:Aashishvishwakarma6233@gmail.com">Aashishvishwakarma6233@gmail.com</a>
   </div>
-
-  <footer>
-    &copy; 2025 Ayush Vishwakarma. Built with ❤️ using GitHub Pages.
-  </footer>
-
+  <footer>&copy; 2025 Ayush. Built with ❤️ using GitHub Pages.</footer>
 </body>
 </html>
