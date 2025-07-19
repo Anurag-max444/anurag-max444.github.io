@@ -47,42 +47,21 @@
       100% { color: black; }
     }
 
-    .role {
+    .role-rotate {
       font-size: 26px;
       color: #555;
       margin-top: 30px;
       height: 30px;
-      overflow: hidden;
-    }
-
-    .role span {
-      display: inline-block;
-      animation: typing 12s steps(30) infinite;
-      white-space: nowrap;
-      border-right: 2px solid #444;
-    }
-
-    @keyframes typing {
-      0% { content: "Web Developer"; }
-      0%   { transform: translateY(0%); }
-      25%  { transform: translateY(-100%); }
-      50%  { transform: translateY(-200%); }
-      75%  { transform: translateY(-300%); }
-      100% { transform: translateY(0%); }
-    }
-
-    .role-rotate {
-      display: inline-block;
-      height: 30px;
       line-height: 30px;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
-    .role-rotate div {
+    .role-rotate p {
+      margin: 0;
+      animation: rotateText 8s infinite;
       position: absolute;
       width: 100%;
-      animation: rotateText 8s infinite;
     }
 
     @keyframes rotateText {
@@ -93,10 +72,10 @@
       100%      { transform: translateY(0); }
     }
 
-    .role-rotate div p {
-      margin: 0;
-      height: 30px;
-    }
+    .role-rotate p:nth-child(1) { top: 0; }
+    .role-rotate p:nth-child(2) { top: 30px; }
+    .role-rotate p:nth-child(3) { top: 60px; }
+    .role-rotate p:nth-child(4) { top: 90px; }
 
     p {
       font-size: 18px;
@@ -120,12 +99,10 @@
   </div>
 
   <div class="role-rotate">
-    <div>
-      <p>Web Developer</p>
-      <p>App Developer</p>
-      <p>UI/UX Designer</p>
-      <p>Backend Developer</p>
-    </div>
+    <p>Web Developer</p>
+    <p>App Developer</p>
+    <p>UI/UX Designer</p>
+    <p>Backend Developer</p>
   </div>
 
   <p>Hi, I'm Ayush – a passionate developer who loves building modern, clean, and creative websites & apps using HTML, CSS, JavaScript, and backend technologies.</p>
