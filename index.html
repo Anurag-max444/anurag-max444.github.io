@@ -217,6 +217,27 @@
 .section-head.yellow { background-color: #ff9800; }
 .section-head.blue { background-color: #f44336; }
     
+    .typewriter {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typing 3s steps(20, end) infinite, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  50% { width: 13ch; } /* "Coming Soon..." = 13 characters */
+  100% { width: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+   
 </style>
 </head>
 <body>
@@ -260,13 +281,13 @@
   </ul>
 
   <h3 class="section-head green">📘 UP Board 2024 PYQs</h3>
-  <ul><li>Coming Soon...</li></ul>
+  <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
 
   <h3 class="section-head yellow">📘 UP Board 2023 PYQs</h3>
-  <ul><li>Coming Soon...</li></ul>
+  <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
 
   <h3 class="section-head red">📘 UP Board 2022 PYQs</h3>
-  <ul><li>Coming Soon...</li></ul>
+  <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
 
 </div>
 
