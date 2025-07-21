@@ -217,31 +217,6 @@
 .section-head.yellow { background-color: #ff9800; }
 .section-head.blue { background-color: #f44336; }
     
-    .typewriter {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: bold;
-  border-right: 2px solid #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  animation: typing 3s steps(20, end) infinite, blink 0.7s infinite;
-}
-
-@keyframes typing {
-  0% { width: 0; }
-  50% { width: 13ch; } /* "Coming Soon..." = 13 characters */
-  100% { width: 0; }
-}
-
-@keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: white; }
-.type-container {
-  text-align: center;
-  margin-top: 10px;
-}
-
 .type-container {
   text-align: center;
   margin-top: 10px;
@@ -256,12 +231,13 @@
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
+  border-right: 2px solid white;
   animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
-  0%, 100% { border-right: 2px solid transparent; }
-  50% { border-right: 2px solid white; }
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
 }
 
 @media screen and (max-width: 600px) {
@@ -269,6 +245,7 @@
     font-size: 18px;
   }
 }
+
 </style>
 </head>
 <body>
@@ -312,7 +289,6 @@
   </ul>
 
   <h3 class="section-head green">📘 UP Board 2024 PYQs</h3>
- <h3 class="section-head blue">📘 UP Board 2025 PYQs</h3>
 <ul>
   <li>
     <div class="type-container">
@@ -320,7 +296,7 @@
     </div>
   </li>
 </ul>
-  <h3 class="section-head yellow">📘 UP Board 2023 PYQs</h3>
+    <h3 class="section-head yellow">📘 UP Board 2023 PYQs</h3>
   <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
 
   <h3 class="section-head red">📘 UP Board 2022 PYQs</h3>
@@ -379,23 +355,31 @@
         a.click();
         document.body.removeChild(a);
         notify.innerText = "✅ Ho gaya bhai!";
-        setTimeout(() => notify.style.display = "none", 2000);
-      }, 1500);
+        setTimeout(() => notify.style.display = "none";
+      }, 2000);
     }
-    <script>
+    
+</script>
+  
+  <script>
 const messages = ["Coming Soon...", "15 August", "Stay Tuned!"];
 const speed = 150;
 const delay = 1500;
-const eraseSpeed = 80;
+const eraseSpeed = 100;
 const loopDelay = 1000;
 
 let current = 0;
 let charIndex = 0;
 let isDeleting = false;
-const target = document.querySelector(".typewriter-text");
+let target;
+
+document.addEventListener("DOMContentLoaded", () => {
+  target = document.querySelector(".typewriter-text");
+  if (target) type();
+});
 
 function type() {
-  let currentMessage = messages[current];
+  const currentMessage = messages[current];
 
   if (isDeleting) {
     target.textContent = currentMessage.substring(0, charIndex--);
@@ -416,45 +400,6 @@ function type() {
     }
   }
 }
-
-document.addEventListener("DOMContentLoaded", type);
-    
-  <script>
-const messages = ["Coming Soon...", "15 August", "Stay Tuned!"];
-const speed = 150;          
-const delay = 1500;         
-const eraseSpeed = 100;     
-const loopDelay = 1000;     
-
-let current = 0;
-let charIndex = 0;
-let isDeleting = false;
-const target = document.querySelector(".typewriter-text");
-
-function type() {
-  let currentMessage = messages[current];
-
-  if (isDeleting) {
-    target.textContent = currentMessage.substring(0, charIndex--);
-    if (charIndex < 0) {
-      isDeleting = false;
-      current = (current + 1) % messages.length;
-      setTimeout(type, loopDelay);
-    } else {
-      setTimeout(type, eraseSpeed);
-    }
-  } else {
-    target.textContent = currentMessage.substring(0, charIndex++);
-    if (charIndex <= currentMessage.length) {
-      setTimeout(type, speed);
-    } else {
-      isDeleting = true;
-      setTimeout(type, delay);
-    }
-  }
-}
-
-document.addEventListener("DOMContentLoaded", type);
 </script>
 </body>
 </html>
