@@ -201,52 +201,51 @@
       display: none;
       z-index: 9999;
     }
-    
+
     .section-head {
-  margin-top: 30px;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 5px 15px;
-  border-radius: 10px;
-  display: inline-block;
-  color: white;
-}
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 5px 15px;
+      border-radius: 10px;
+      display: inline-block;
+      color: white;
+    }
 
-.section-head.red { background-color: #2196f3; }
-.section-head.green { background-color: #4caf50; }
-.section-head.yellow { background-color: #ff9800; }
-.section-head.blue { background-color: #f44336; }
-    
-.type-container {
-  text-align: center;
-  margin-top: 10px;
-}
+    .section-head.red { background-color: #2196f3; }
+    .section-head.green { background-color: #4caf50; }
+    .section-head.yellow { background-color: #ff9800; }
+    .section-head.blue { background-color: #f44336; }
 
-.typewriter-text {
-  font-family: 'Courier New', monospace;
-  font-size: 22px;
-  font-weight: bold;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  border-right: 2px solid white;
-  animation: blink-caret 0.75s step-end infinite;
-}
+    .type-container {
+      text-align: center;
+      margin-top: 10px;
+    }
 
-@keyframes blink-caret {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: white; }
-}
+    .typewriter-text {
+      font-family: 'Courier New', monospace;
+      font-size: 22px;
+      font-weight: bold;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      border-right: 2px solid white;
+      animation: blink-caret 0.75s step-end infinite;
+    }
 
-@media screen and (max-width: 600px) {
-  .typewriter-text {
-    font-size: 18px;
-  }
-}
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: white; }
+    }
 
-</style>
+    @media screen and (max-width: 600px) {
+      .typewriter-text {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="timeDisplay"></div>
@@ -278,34 +277,32 @@
   </a>
 
   <div class="pdf-links" id="pdfSection">
+    <h3 class="section-head blue">📘 UP Board 2025 PYQs</h3>
+    <ul>
+      <li><a href="pdfs/Physics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
+      <li><a href="pdfs/Chemistry 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
+      <li><a href="pdfs/Mathematics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
+      <li><a href="pdfs/G Hindi 7 sets PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
+      <li><a href="pdfs/English 8 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
+    </ul>
 
-  <h3 class="section-head blue">📘 UP Board 2025 PYQs</h3>
-  <ul>
-    <li><a href="pdfs/Physics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
-    <li><a href="pdfs/Chemistry 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
-    <li><a href="pdfs/Mathematics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
-    <li><a href="pdfs/G Hindi 7 sets PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
-    <li><a href="pdfs/English 8 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
-  </ul>
+    <h3 class="section-head green">📘 UP Board 2024 PYQs</h3>
+    <ul>
+      <li>
+        <div class="type-container">
+          <span class="typewriter-text"></span>
+        </div>
+      </li>
+    </ul>
 
-  <h3 class="section-head green">📘 UP Board 2024 PYQs</h3>
-<ul>
-  <li>
-    <div class="type-container">
-      <span class="typewriter-text"></span>
-    </div>
-  </li>
-</ul>
     <h3 class="section-head yellow">📘 UP Board 2023 PYQs</h3>
-  <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
+    <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
 
-  <h3 class="section-head red">📘 UP Board 2022 PYQs</h3>
-  <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
-
-</div>
+    <h3 class="section-head red">📘 UP Board 2022 PYQs</h3>
+    <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
+  </div>
 
   <footer>&copy; 2025 Ayush Vishwakarma</footer>
-
   <button id="darkToggle" onclick="toggleDarkMode()">🌙</button>
 
   <script>
@@ -355,51 +352,49 @@
         a.click();
         document.body.removeChild(a);
         notify.innerText = "✅ Ho gaya bhai!";
-        setTimeout(() => notify.style.display = "none";
-      }, 2000);
+        setTimeout(() => notify.style.display = "none", 2000);
+      }, 1000);
     }
-    
-</script>
-  
+  </script>
+
   <script>
-const messages = ["Coming Soon...", "15 August", "Stay Tuned!"];
-const speed = 150;
-const delay = 1500;
-const eraseSpeed = 100;
-const loopDelay = 1000;
+    const messages = ["Coming Soon...", "15 August", "Stay Tuned!"];
+    const speed = 150;
+    const delay = 1500;
+    const eraseSpeed = 100;
+    const loopDelay = 1000;
 
-let current = 0;
-let charIndex = 0;
-let isDeleting = false;
-let target;
+    let current = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let target;
 
-document.addEventListener("DOMContentLoaded", () => {
-  target = document.querySelector(".typewriter-text");
-  if (target) type();
-});
+    document.addEventListener("DOMContentLoaded", () => {
+      target = document.querySelector(".typewriter-text");
+      if (target) type();
+    });
 
-function type() {
-  const currentMessage = messages[current];
-
-  if (isDeleting) {
-    target.textContent = currentMessage.substring(0, charIndex--);
-    if (charIndex < 0) {
-      isDeleting = false;
-      current = (current + 1) % messages.length;
-      setTimeout(type, loopDelay);
-    } else {
-      setTimeout(type, eraseSpeed);
+    function type() {
+      const currentMessage = messages[current];
+      if (isDeleting) {
+        target.textContent = currentMessage.substring(0, charIndex--);
+        if (charIndex < 0) {
+          isDeleting = false;
+          current = (current + 1) % messages.length;
+          setTimeout(type, loopDelay);
+        } else {
+          setTimeout(type, eraseSpeed);
+        }
+      } else {
+        target.textContent = currentMessage.substring(0, charIndex++);
+        if (charIndex <= currentMessage.length) {
+          setTimeout(type, speed);
+        } else {
+          isDeleting = true;
+          setTimeout(type, delay);
+        }
+      }
     }
-  } else {
-    target.textContent = currentMessage.substring(0, charIndex++);
-    if (charIndex <= currentMessage.length) {
-      setTimeout(type, speed);
-    } else {
-      isDeleting = true;
-      setTimeout(type, delay);
-    }
-  }
-}
-</script>
+  </script>
 </body>
 </html>
