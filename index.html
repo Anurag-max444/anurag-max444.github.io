@@ -237,7 +237,38 @@
 @keyframes blink {
   0%, 100% { border-color: transparent; }
   50% { border-color: white; }
-   
+.type-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.type-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.typewriter-text {
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-right: 2px solid transparent; }
+  50% { border-right: 2px solid white; }
+}
+
+@media screen and (max-width: 600px) {
+  .typewriter-text {
+    font-size: 18px;
+  }
+}
 </style>
 </head>
 <body>
@@ -281,8 +312,14 @@
   </ul>
 
   <h3 class="section-head green">📘 UP Board 2024 PYQs</h3>
-  <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
-
+ <h3 class="section-head blue">📘 UP Board 2025 PYQs</h3>
+<ul>
+  <li>
+    <div class="type-container">
+      <span class="typewriter-text"></span>
+    </div>
+  </li>
+</ul>
   <h3 class="section-head yellow">📘 UP Board 2023 PYQs</h3>
   <ul><li><span class="typewriter">Coming Soon...</span></li></ul>
 
@@ -345,6 +382,42 @@
         setTimeout(() => notify.style.display = "none", 2000);
       }, 1500);
     }
-  </script>
+    <script>
+const messages = ["Coming Soon...", "15 August", "Stay Tuned!"];
+const speed = 150;
+const delay = 1500;
+const eraseSpeed = 80;
+const loopDelay = 1000;
+
+let current = 0;
+let charIndex = 0;
+let isDeleting = false;
+const target = document.querySelector(".typewriter-text");
+
+function type() {
+  let currentMessage = messages[current];
+
+  if (isDeleting) {
+    target.textContent = currentMessage.substring(0, charIndex--);
+    if (charIndex < 0) {
+      isDeleting = false;
+      current = (current + 1) % messages.length;
+      setTimeout(type, loopDelay);
+    } else {
+      setTimeout(type, eraseSpeed);
+    }
+  } else {
+    target.textContent = currentMessage.substring(0, charIndex++);
+    if (charIndex <= currentMessage.length) {
+      setTimeout(type, speed);
+    } else {
+      isDeleting = true;
+      setTimeout(type, delay);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", type);
+</script>
 </body>
 </html>
