@@ -15,6 +15,11 @@
       --metal-gradient: linear-gradient(135deg, #ffd700, #222);
     }
 
+    body.locked {
+      overflow: hidden;
+      pointer-events: none;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -203,7 +208,25 @@
     }
   </style>
 </head>
-<body>
+<body class="locked">
+  <div id="loginPage" style="
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: white; z-index: 9999; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; font-family: 'Segoe UI', sans-serif;
+  ">
+    <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" width="80" style="border-radius: 50%;">
+    <h2 style="margin: 20px 0 10px;">Sign in</h2>
+    <p style="margin: 0 0 30px;">to continue to Portfolio</p>
+    <button onclick="login()" style="
+      background: white; border: 1px solid #ccc; padding: 10px 20px;
+      font-size: 14px; border-radius: 4px; cursor: pointer;
+      display: flex; align-items: center; gap: 10px;
+    ">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" width="18">
+      Continue with Google
+    </button>
+  </div>
+
   <div id="timeDisplay"></div>
   <div class="notify" id="notify"></div>
 
@@ -295,6 +318,11 @@
         notify.innerText = "✅ Ho gaya bhai!";
         setTimeout(() => notify.style.display = "none", 2000);
       }, 1500);
+    }
+
+    function login() {
+      document.getElementById("loginPage").style.display = "none";
+      document.body.classList.remove("locked");
     }
   </script>
 </body>
