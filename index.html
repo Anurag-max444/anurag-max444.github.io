@@ -418,6 +418,43 @@ function type() {
 }
 
 document.addEventListener("DOMContentLoaded", type);
+    
+  <script>
+const messages = ["Coming Soon...", "15 August", "Stay Tuned!"];
+const speed = 150;          
+const delay = 1500;         
+const eraseSpeed = 100;     
+const loopDelay = 1000;     
+
+let current = 0;
+let charIndex = 0;
+let isDeleting = false;
+const target = document.querySelector(".typewriter-text");
+
+function type() {
+  let currentMessage = messages[current];
+
+  if (isDeleting) {
+    target.textContent = currentMessage.substring(0, charIndex--);
+    if (charIndex < 0) {
+      isDeleting = false;
+      current = (current + 1) % messages.length;
+      setTimeout(type, loopDelay);
+    } else {
+      setTimeout(type, eraseSpeed);
+    }
+  } else {
+    target.textContent = currentMessage.substring(0, charIndex++);
+    if (charIndex <= currentMessage.length) {
+      setTimeout(type, speed);
+    } else {
+      isDeleting = true;
+      setTimeout(type, delay);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", type);
 </script>
 </body>
 </html>
