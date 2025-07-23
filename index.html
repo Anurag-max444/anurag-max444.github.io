@@ -426,5 +426,175 @@
       }
     }
   </script>
+<!-- 👇 AI Chat UI + Script | Paste before </body> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+  .ai-chat-icon {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 22px;
+    z-index: 999;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: pop-in 0.5s ease-out;
+  }
+
+  .ai-chat-box {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 90%;
+    max-width: 320px;
+    max-height: 70vh;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #aaa;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  .ai-chat-header {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .ai-chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    font-size: 14px;
+  }
+
+  .ai-chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  .ai-chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .ai-chat-input button {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .ai-message {
+    margin: 5px 0;
+    line-height: 1.4;
+  }
+
+  .ai-message.user {
+    text-align: right;
+    color: #333;
+  }
+
+  .ai-message.bot {
+    text-align: left;
+    color: #007bff;
+  }
+
+  @keyframes pop-in {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ai-chat-box {
+      right: 10px;
+      bottom: 100px;
+    }
+
+    .ai-chat-icon {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>
+
+<!-- Icon -->
+<div class="ai-chat-icon" onclick="toggleAIChat()">
+  💬
+</div>
+
+<!-- Chat Box -->
+<div class="ai-chat-box" id="aiChatBox">
+  <div class="ai-chat-header">AI Chat Assistant</div>
+  <div class="ai-chat-messages" id="aiMessages"></div>
+  <div class="ai-chat-input">
+    <input type="text" id="aiInput" placeholder="Ask me anything..." />
+    <button onclick="sendAIMessage()">Send</button>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  const aiBox = document.getElementById("aiChatBox");
+  const aiMessages = document.getElementById("aiMessages");
+  const aiInput = document.getElementById("aiInput");
+
+  function toggleAIChat() {
+    aiBox.style.display = aiBox.style.display === "flex" ? "none" : "flex";
+    aiBox.style.flexDirection = "column";
+  }
+
+  function sendAIMessage() {
+    const userMsg = aiInput.value.trim();
+    if (!userMsg) return;
+    appendMessage(userMsg, "user");
+    aiInput.value = "";
+    setTimeout(() => {
+      const botReply = getBotReply(userMsg);
+      appendMessage(botReply, "bot");
+    }, 1000);
+  }
+
+  function appendMessage(text, type) {
+    const msg = document.createElement("div");
+    msg.className = "ai-message " + type;
+    msg.textContent = text;
+    aiMessages.appendChild(msg);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+
+  function getBotReply(input) {
+    const replies = [
+      "Hmm, interesting! 🤔",
+      "Main samajh gaya. 👍",
+      "Thoda aur clear batao?",
+      "Yeh acha laga mujhe! 😄",
+      "Main AI hu, but real dikh raha hu na? 😎",
+      "Main Fake AI hu yrr 😅"
+    ];
+    return replies[Math.floor(Math.random() * replies.length)];
+  }
+</script>
 </body>
 </html>
