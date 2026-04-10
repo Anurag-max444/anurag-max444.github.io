@@ -1,0 +1,593 @@
+/* ============================================================
+   style.css  —  Ayush Vishwakarma Portfolio
+   Structure:
+   1. CSS Custom Properties (Design Tokens)
+   2. Reset & Base
+   3. Dark Mode
+   4. Clock
+   5. Notification Toast
+   6. Hero / Main Layout
+   7. RGB Animated Name
+   8. Rotating Title
+   9. Intro Text
+   10. Contact Sidebar
+   11. Resources Button
+   12. Resources Panel & Badges
+   13. Resource Lists
+   14. Upload Date Labels
+   15. Typewriter Element
+   16. Footer
+   17. Floating Action Buttons (FABs)
+   18. AI Chat Box
+   19. Responsive — Tablet (≤768px)
+   20. Responsive — Mobile (≤480px)
+============================================================ */
+
+/* ── 1. Design Tokens ─────────────────────────────────────── */
+:root {
+  /* Light theme */
+  --bg:            #f4f4f6;
+  --surface:       #ffffff;
+  --text-primary:  #1a1a2e;
+  --text-muted:    #666680;
+  --accent:        #0077ff;
+  --accent-hover:  #005fcc;
+
+  /* Badge colours */
+  --badge-purple:  linear-gradient(135deg, #8e2de2, #4a00e0, #ff416c);
+  --badge-blue:    #1565c0;
+  --badge-green:   #2e7d32;
+  --badge-yellow:  #f57f17;
+  --badge-red:     #c62828;
+  --badge-pink:    linear-gradient(135deg, #ff6ec4, #7873f5);
+  --badge-teal:    #00695c;
+
+  /* Animated name gradient */
+  --name-gradient: linear-gradient(135deg, #ffd700, #222);
+
+  /* Spacing */
+  --space-xs:  0.4rem;
+  --space-sm:  0.75rem;
+  --space-md:  1.25rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Transition */
+  --transition: 0.3s ease;
+}
+
+/* Dark theme overrides */
+body.dark-mode {
+  --bg:           #0d0d14;
+  --surface:      #161622;
+  --text-primary: #e8e8f0;
+  --text-muted:   #9999bb;
+}
+
+/* ── 2. Reset & Base ──────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  text-align: center;
+  /* bottom padding so FABs never cover content */
+  padding: 4rem 1.25rem 7rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ── 3. Dark Mode — RGB name override ────────────────────── */
+body.dark-mode .rgb-name span {
+  animation: none !important;
+  color: #ffffff;
+}
+
+/* ── 4. Clock ─────────────────────────────────────────────── */
+.clock {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+  padding: 4px 12px;
+  border-radius: 50px;
+  z-index: 100;
+  transition: background var(--transition);
+}
+
+body.dark-mode .clock {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── 5. Notification Toast ────────────────────────────────── */
+.notify-toast {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00e676;
+  color: #000;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 4px 18px rgba(0, 230, 118, 0.4);
+  animation: slide-down 0.3s ease;
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── 6. Hero / Main Layout ────────────────────────────────── */
+.hero {
+  max-width: 780px;
+  margin: 0 auto;
+  padding-top: var(--space-xl);
+}
+
+/* ── 7. RGB Animated Name ─────────────────────────────────── */
+.rgb-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.rgb-name span {
+  display: inline-block;
+  animation: rgb-cycle 2.5s infinite alternate;
+}
+
+/* Stagger every other letter */
+.rgb-name span:nth-child(odd)  { animation-delay: 0.15s; }
+.rgb-name span:nth-child(even) { animation-delay: 0.35s; }
+
+@keyframes rgb-cycle {
+  0%   { color: #ff4d4d; }
+  33%  { color: #22cc88; }
+  66%  { color: #4488ff; }
+  100% { color: var(--text-primary); }
+}
+
+/* ── 8. Rotating Title ────────────────────────────────────── */
+.rotating-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: var(--space-md);
+  min-height: 2rem;
+  transition: color var(--transition);
+}
+
+/* ── 9. Intro Text ────────────────────────────────────────── */
+.intro {
+  margin: var(--space-md) auto;
+  max-width: 600px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ── 10. Contact Sidebar ──────────────────────────────────── */
+/* Visible on desktop; hidden on mobile (see responsive) */
+.contact-sidebar {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  text-align: left;
+  max-width: 260px;
+  z-index: 50;
+}
+
+.sidebar-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-muted);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 6px 0;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--name-gradient);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contact-link:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.contact-link i {
+  font-size: 1.1rem;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.contact-link:hover i {
+  transform: scale(1.25);
+  color: #ffd700;
+}
+
+/* ── 11. Resources Toggle Button ─────────────────────────── */
+.btn-resources {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding: 0.65rem 1.4rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-resources:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 119, 255, 0.35);
+}
+
+/* ── 12. Resources Panel & Section Badges ─────────────────── */
+.resources-panel {
+  display: none; /* toggled by JS */
+  margin: var(--space-lg) auto 0;
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  animation: fade-in-up 0.35s ease;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Section heading badges */
+.section-badge {
+  display: inline-block;
+  margin: var(--space-md) 0 var(--space-sm);
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.badge--purple { background: var(--badge-purple); }
+.badge--blue   { background: var(--badge-blue);   }
+.badge--green  { background: var(--badge-green);  }
+.badge--yellow { background: var(--badge-yellow); }
+.badge--red    { background: var(--badge-red);    }
+.badge--pink   { background: var(--badge-pink);   }
+.badge--teal   { background: var(--badge-teal);   }
+
+/* ── 13. Resource Lists ───────────────────────────────────── */
+.resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: var(--space-sm);
+}
+
+.resource-list li a {
+  color: #00bfa5;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color var(--transition);
+}
+
+.resource-list li a:hover {
+  color: #ff5252;
+  text-decoration: underline;
+}
+
+/* ── 14. Upload Date Labels ───────────────────────────────── */
+.upload-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: var(--space-xs) 0 var(--space-md);
+  font-style: italic;
+}
+
+/* ── 15. Typewriter Element ───────────────────────────────── */
+.typewriter-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc, 0 0 18px #00ffaa;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  /* blinking caret */
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50%       { border-color: rgba(255, 255, 255, 0.7); }
+}
+
+.coming-soon-item {
+  margin-top: var(--space-sm);
+}
+
+/* ── 16. Footer ───────────────────────────────────────────── */
+.site-footer {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  position: fixed;
+  bottom: 6px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  pointer-events: none; /* don't block FABs beneath */
+}
+
+/* ── 17. Floating Action Buttons (FABs) ───────────────────── */
+.fab {
+  position: fixed;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 200;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode toggle — bottom-right */
+.fab--dark-toggle {
+  bottom: 64px;
+  right: 18px;
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .fab--dark-toggle {
+  background: #e0e0e0;
+  color: #111;
+}
+
+/* Chat FAB — bottom-right, above dark toggle */
+.fab--chat {
+  bottom: 120px;
+  right: 18px;
+  background: var(--accent);
+  color: #fff;
+  animation: pop-in 0.5s ease-out;
+}
+
+@keyframes pop-in {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ── 18. AI Chat Box ──────────────────────────────────────── */
+.chat-box {
+  position: fixed;
+  bottom: 174px;
+  right: 18px;
+  width: min(320px, 92vw);
+  max-height: 62vh;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  display: none; /* shown by JS */
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 199;
+  animation: fade-in-up 0.3s ease;
+}
+
+.chat-header {
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+
+.chat-close-btn:hover { opacity: 1; }
+
+.chat-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  background: var(--bg);
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual message bubbles */
+.chat-msg {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  line-height: 1.45;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.chat-msg--user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-msg--bot {
+  align-self: flex-start;
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-input-row {
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  outline: none;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+}
+
+.chat-send-btn {
+  padding: 10px 16px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: background var(--transition);
+}
+
+.chat-send-btn:hover { background: var(--accent-hover); }
+
+/* ── 19. Responsive — Tablet ──────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hide desktop contact sidebar */
+  .contact-sidebar {
+    display: none;
+  }
+}
+
+/* ── 20. Responsive — Mobile ──────────────────────────────── */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+    padding: 3rem 1rem 8rem;
+  }
+
+  .rgb-name {
+    font-size: clamp(1.6rem, 9vw, 2.2rem);
+  }
+
+  .rotating-title {
+    font-size: 1.1rem;
+  }
+
+  .intro {
+    font-size: 0.92rem;
+  }
+
+  /* Resources button full-width on mobile */
+  .btn-resources {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .resources-panel {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+
+  .typewriter-text {
+    font-size: 0.88rem;
+  }
+
+  /* Reposition FABs tighter on small screens */
+  .fab--dark-toggle { bottom: 54px;  right: 12px; }
+  .fab--chat        { bottom: 106px; right: 12px; }
+
+  .chat-box {
+    bottom: 160px;
+    right: 12px;
+    max-height: 55vh;
+  }
+
+  .clock {
+    font-size: 0.78rem;
+    padding: 3px 8px;
+    top: 8px;
+    right: 10px;
+  }
+}
