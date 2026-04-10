@@ -1,248 +1,789 @@
+<!-- dummy deploy trigger -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ayush Vishwakarma's portfolio – developer, designer & study resource hub" />
-  <title>Ayush Vishwakarma | Student &amp; Developer</title>
-
-  <!-- Font Awesome icons (single import – removed duplicate) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Google Fonts: display + body pair -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- External stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XGVF1GY20"></script>
+  <meta charset="UTF-8">
+  <title>Ayush Vishwakarma | Student</title>
+  <meta name="description" content="Ayush Vishwakarma's colorful developer portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XGVF1GY20"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-8XGVF1GY20');
   </script>
+  
+  <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --text-light: #222;
+      --bg-dark: #111;
+      --text-dark: #fff;
+      --metal-gradient: linear-gradient(135deg, #ffd700, #222);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      text-align: center;
+      padding: 50px 20px;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 18px;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .rgb-name span {
+      font-size: 40px;
+      font-weight: bold;
+      display: inline-block;
+      animation: rgb 2s infinite alternate;
+    }
+
+    .rgb-name span:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    .rgb-name span:nth-child(even) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes rgb {
+      0% { color: red; }
+      33% { color: green; }
+      66% { color: blue; }
+      100% { color: black; }
+    }
+
+    .dark-mode .rgb-name span {
+      animation: none;
+      color: white;
+    }
+
+    .title-loop {
+      font-size: 24px;
+      margin-top: 40px;
+      font-weight: bold;
+      height: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .intro {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.5;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-icons {
+      position: fixed;
+      bottom: 90px;
+      left: 20px;
+      text-align: left;
+      max-width: 80vw;
+    }
+
+    .contact-icons a {
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--metal-gradient);
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .contact-icons i {
+      margin-right: 6px;
+      font-size: 20px;
+    }
+
+    .contact-icons a:hover i {
+      transform: scale(1.2);
+      color: #ff9800;
+    }
+
+    footer {
+      font-size: 14px;
+      color: #666;
+      position: fixed;
+      bottom: 5px;
+      width: 100%;
+      text-align: center;
+    }
+
+    #darkToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    #timeDisplay {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+
+    #resume {
+      position: fixed;
+      bottom: 5px;
+      left: 20px;
+      background: #007BFF;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      transition: background 0.3s;
+    }
+
+    #resume:hover {
+      background: #0056b3;
+    }
+
+    .pdf-links {
+      display: none;
+      margin-top: 40px;
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pdf-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pdf-links li {
+      margin: 10px 0;
+    }
+
+    .pdf-links a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .pdf-links a:hover {
+      color: #ff6347;
+      text-decoration: underline;
+    }
+
+    .notify {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #00ff88;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+      z-index: 9999;
+    }
+
+    .section-head {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 5px 15px;
+      border-radius: 10px;
+      display: inline-block;
+      color: white;
+    }
+
+    .section-head.red { background-color: #2196f3; }
+    .section-head.green { background-color: #4caf50; }
+    .section-head.yellow { background-color: #ff9800; }
+    .section-head.blue { background-color: #f44336; }
+    .section-head.pink { background-color: #e91e63; }
+    
+    .type-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .typewriter-text {
+      font-family: 'Courier New', monospace;
+      font-size: 22px;
+      font-weight: bold;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      border-right: 2px solid white;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: white; }
+    }
+
+    @media screen and (max-width: 600px) {
+  
+    body {
+      padding: 16px 8px;
+      font-size: 16px;
+      line-height: 1.5;
+      padding-bottom: 120px;
+   }
+
+    .rgb-name {
+      position: relative;
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+      line-height: 1.4;
+   }
+      
+   .rgb-name span {
+      font-size: 26px;
+      word-break: break-word; 
+   }
+
+   .intro {
+     max-width: 100%;
+     font-size: 15px;
+     text-align: center;
+     margin: 0 auto;
+   }
+
+  .clock {
+   position: fixed;
+    top: 4px;
+    right: 10px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.7);
+    padding: 4px 8px;
+    border-radius: 6px;
+    z-index: 1000;
+ }  
+
+   .contact-icons {
+ display: none
+}
+      
+.contact-icons a {
+    display: none
+}
+
+   #resume {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  width: auto;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}
+   #darkToggle, .ai-chat-icon {
+    position: fixed;
+    right: 10px;
+    z-index: 1001;
+  }
+
+  #darkToggle {
+    position: fixed;
+    bottom: 65px;
+    right: 10px;
+    z-index: 1001;
+    border-radius: 50%;
+    padding: 8px;
+    background: white;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .ai-chat-icon {
+    display: none
+  }
+      
+   .pdf-links {
+    max-width: 100%;
+    padding: 12px;
+  }
+   .typewriter-text {
+    font-size: 17px;
+    text-align: center;
+  }
+    }
+  </style>
 </head>
-
 <body>
+  <div id="timeDisplay"></div>
+  <div class="notify" id="notify"></div>
 
-  <!-- ───────────────────────────────────────────
-       LIVE CLOCK  (top-right corner)
-  ─────────────────────────────────────────── -->
-  <div id="time-display" class="clock" aria-live="polite"></div>
-
-  <!-- ───────────────────────────────────────────
-       DOWNLOAD NOTIFICATION TOAST
-  ─────────────────────────────────────────── -->
-  <div id="notify-toast" class="notify-toast" role="status" aria-live="polite"></div>
-
-  <!-- ───────────────────────────────────────────
-       HERO SECTION
-  ─────────────────────────────────────────── -->
-  <main class="hero">
-
-    <!-- Animated RGB name -->
-    <h1 class="rgb-name" aria-label="Ayush Vishwakarma">
-      <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
-      <span>&nbsp;</span>
-      <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
-    </h1>
-
-    <!-- Rotating title (Web Developer / App Developer / UI/UX Designer) -->
-    <p id="loop-title" class="rotating-title" aria-label="Current role"></p>
-
-    <!-- Short bio -->
-    <p class="intro">
-      I'm Ayush — a passionate developer who loves building modern, clean, and creative
-      websites and apps using HTML, CSS, JS, and backend technology.
-    </p>
-
-    <!-- ── CONTACT SIDEBAR (desktop only) ── -->
-    <aside class="contact-sidebar" aria-label="Contact links">
-      <p class="sidebar-label">Instagram ID — joy126495</p>
-
-      <a href="mailto:aashishvishwakarma6233@gmail.com" class="contact-link" target="_blank" rel="noopener">
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-        <span>Email: aashishvishwakarma6233@gmail.com</span>
-      </a>
-
-      <a href="https://t.me/JoyAyush" class="contact-link" target="_blank" rel="noopener">
-        <i class="fab fa-telegram" aria-hidden="true"></i>
-        <span>Telegram: t.me/JoyAyush</span>
-      </a>
-    </aside>
-
-    <!-- ── STUDY RESOURCES TOGGLE BUTTON ── -->
-    <button id="toggle-resources-btn" class="btn-resources" onclick="togglePDFs()" aria-expanded="false">
-      <i class="fas fa-book-open" aria-hidden="true"></i>
-      Download 12th Study Resources
-    </button>
-
-    <!-- ── STUDY RESOURCES PANEL ── -->
-    <section id="pdf-section" class="resources-panel" aria-hidden="true">
-
-      <!-- PCM NCERT Books -->
-      <h2 class="section-badge badge--purple">📚 PCM Books Hindi Medium — NCERT</h2>
-      <ul class="resource-list">
-        <li><a href="pdfs/Mathematics Part 1 Book.pdf" onclick="notifyDownload(this)">📕 Mathematics Part 1</a></li>
-        <li><a href="pdfs/Mathematics Part 2 Book.pdf" onclick="notifyDownload(this)">📙 Mathematics Part 2</a></li>
-        <li><a href="pdfs/Physics Part 1 Book.pdf" onclick="notifyDownload(this)">📗 Physics Part 1</a></li>
-        <li><a href="pdfs/Physics Part 2 Book.pdf" onclick="notifyDownload(this)">📘 Physics Part 2</a></li>
-        <li><a href="pdfs/Chemistry Part 1 Book.pdf" onclick="notifyDownload(this)">📙 Chemistry Part 1</a></li>
-        <li><a href="pdfs/Chemistry Part 2 Book.pdf" onclick="notifyDownload(this)">📔 Chemistry Part 2</a></li>
-      </ul>
-      <p class="upload-date">📅 Uploaded: 15 August 2025</p>
-
-      <!-- UP Board 2025 PYQs -->
-      <h2 class="section-badge badge--blue">📘 UP Board 2025 PYQs</h2>
-      <ul class="resource-list">
-        <li><a href="pdfs/Physics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
-        <li><a href="pdfs/Chemistry 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
-        <li><a href="pdfs/Mathematics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
-        <li><a href="pdfs/G Hindi 7 sets PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
-        <li><a href="pdfs/English 8 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
-      </ul>
-      <p class="upload-date">📅 Uploaded: 9 August 2025</p>
-
-      <!-- UP Board 2024 PYQs -->
-      <h2 class="section-badge badge--green">📙 UP Board 2024 PYQs</h2>
-      <ul class="resource-list">
-        <li><a href="pdfs/Physics 6 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
-        <li><a href="pdfs/Chemistry 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
-        <li><a href="pdfs/Mathematics 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
-        <li><a href="pdfs/G Hindi 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
-        <li><a href="pdfs/English 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
-      </ul>
-      <p class="upload-date">📅 Uploaded: 15 August 2025</p>
-
-      <!-- UP Board 2023 PYQs -->
-      <h2 class="section-badge badge--yellow">📗 UP Board 2023 PYQs</h2>
-      <ul class="resource-list">
-        <li><a href="pdfs/Physics 7 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
-        <li><a href="pdfs/Chemistry 7 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
-        <li><a href="pdfs/Mathematics 5 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
-        <li><a href="pdfs/G Hindi 6 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
-        <li><a href="pdfs/English 7 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
-      </ul>
-      <p class="upload-date">📅 Uploaded: 31 July 2025</p>
-
-      <!-- UP Board 2022 PYQs -->
-      <h2 class="section-badge badge--red">📕 UP Board 2022 PYQs</h2>
-      <ul class="resource-list">
-        <li><a href="pdfs/Physics 6 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
-        <li><a href="pdfs/Chemistry 7 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
-        <li><a href="pdfs/Mathematics 4 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
-        <li><a href="pdfs/G Hindi 7 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
-        <li><a href="pdfs/English 6 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
-      </ul>
-      <p class="upload-date">📅 Uploaded: 31 July 2025</p>
-
-      <!-- Unsolved Papers -->
-      <h2 class="section-badge badge--pink">📘 5 Subject Unsolved (2022–2025)</h2>
-      <ul class="resource-list">
-        <li><a href="pdfs/Physics Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 Physics Unsolved</a></li>
-        <li><a href="pdfs/Chemistry Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 Chemistry Unsolved</a></li>
-        <li><a href="pdfs/Mathematics Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 Mathematics Unsolved</a></li>
-        <li><a href="pdfs/G Hindi Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 General Hindi Unsolved</a></li>
-        <li><a href="pdfs/English Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 English Unsolved</a></li>
-      </ul>
-      <p class="upload-date">📅 Uploaded: 15 August 2025</p>
-
-      <!-- Short Notes -->
-      <h2 class="section-badge badge--teal">📑 My Short Notes</h2>
-      <ul class="resource-list">
-        <li>
-          <a href="pdfs/Ist Demo 1 to 5 Physics_Class12_Part1_Notes.pdf" onclick="notifyDownload(this)">
-            📄 1st Demo: Physics Part 1 Notes (Ch 1–5)
-          </a>
-        </li>
-        <li>
-          <a href="pdfs/2nd Demo Physics_Class12_PYQ_Based_ShortNotes.pdf" onclick="notifyDownload(this)">
-            📄 2nd Demo: Physics PYQ Based Short Notes
-          </a>
-        </li>
-        <!-- Typewriter "coming soon" message -->
-        <li class="coming-soon-item">
-          <span class="typewriter-text" id="typewriter-el"></span>
-        </li>
-      </ul>
-
-    </section>
-    <!-- /.resources-panel -->
-
-  </main>
-
-  <!-- ───────────────────────────────────────────
-       FOOTER
-  ─────────────────────────────────────────── -->
-  <footer class="site-footer">
-    &copy; 2025 Ayush Vishwakarma
-  </footer>
-
-  <!-- ───────────────────────────────────────────
-       FLOATING ACTION BUTTONS
-  ─────────────────────────────────────────── -->
-
-  <!-- Dark mode toggle -->
-  <button
-    id="dark-toggle"
-    class="fab fab--dark-toggle"
-    onclick="toggleDarkMode()"
-    aria-label="Toggle dark mode"
-  >🌗</button>
-
-  <!-- AI Chat toggle -->
-  <button
-    class="fab fab--chat"
-    onclick="toggleAIChat()"
-    aria-label="Open AI chat"
-    aria-expanded="false"
-    id="chat-fab"
-  >💬</button>
-
-  <!-- ───────────────────────────────────────────
-       AI CHAT BOX
-  ─────────────────────────────────────────── -->
-  <div class="chat-box" id="ai-chat-box" aria-hidden="true">
-    <div class="chat-header">
-      <span>AI Chat Assistant</span>
-      <button class="chat-close-btn" onclick="toggleAIChat()" aria-label="Close chat">✕</button>
-    </div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input-row">
-      <input
-        type="text"
-        id="chat-input"
-        class="chat-input"
-        placeholder="Ask me anything…"
-        onkeydown="if(event.key==='Enter') sendAIMessage()"
-        aria-label="Chat input"
-      />
-      <button class="chat-send-btn" onclick="sendAIMessage()">Send</button>
-    </div>
+  <div class="rgb-name">
+    <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
+    <span> </span>
+    <span>V</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>k</span><span>a</span><span>r</span><span>m</span><span>a</span>
   </div>
 
-  <!-- Tawk.to live chat widget -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/68df74842aef141952fce0f7/1j6kduabr';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
+  <div class="title-loop" id="loopTitle">Web Developer</div>
+
+  <div class="intro">
+    I'm Ayush – a passionate developer who loves building modern, clean, and creative websites and apps using HTML, CSS, JS, and backend technology.
+  </div>
+  
+    <div class="contact-icons">
+    <div style="font-size: 14px; margin-bottom: 10px; font-weight: bold;">
+      Instagram ID - joy126495
+    </div>
+    <a href="mailto:aashishvishwakarma6233@gmail.com" target="_blank">
+      <i class="fas fa-envelope"></i><span>Email:</span>&nbsp;<span>aashishvishwakarma6233@gmail.com</span>
+    </a>
+    <a href="https://t.me/JoyAyush" target="_blank">
+      <i class="fab fa-telegram"></i><span>Telegram:</span>&nbsp;<span>https://t.me/JoyAyush</span>
+    </a>
+  </div>
+
+  <a id="resume" href="javascript:void(0);" onclick="togglePDFs()">
+    <i class="fas fa-download"></i> <span style="pointer-events: none;">Download 12th Study Resources</span>
+  </a>
+  <div class="pdf-links" id="pdfSection">
+  <h3 class="section-head" style="background: linear-gradient(135deg, #8e2de2, #4a00e0, #ff416c);">📚 PCM Books Hindi Medium - NCERT</h3>
+<ul>
+  <li><a href="pdfs/Mathematics Part 1 Book.pdf" onclick="notifyDownload(this)">📕 Mathematics Part - 1</a></li>
+  <li><a href="pdfs/Mathematics Part 2 Book.pdf" onclick="notifyDownload(this)">📙 Mathematics Part - 2</a></li>
+  <li><a href="pdfs/Physics Part 1 Book.pdf" onclick="notifyDownload(this)">📗 Physics Part - 1</a></li>
+  <li><a href="pdfs/Physics Part 2 Book.pdf" onclick="notifyDownload(this)">📘 Physics part - 2</a></li>
+  <li><a href="pdfs/Chemistry Part 1 Book.pdf" onclick="notifyDownload(this)">📙 Chemistry Part - 1</a></li>
+  <li><a href="pdfs/Chemistry Part 2 Book.pdf" onclick="notifyDownload(this)">📔 Chemistry Part - 2</a></li>
+ </ul>
+    <ul><li><span class="typewriter">Upload Date - 15 August 2025</span></li></ul>
+    <h3 class="section-head blue">📘 UP Board 2025 PYQs</h3>
+    <ul>
+      <li><a href="pdfs/Physics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
+      <li><a href="pdfs/Chemistry 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
+      <li><a href="pdfs/Mathematics 7 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
+      <li><a href="pdfs/G Hindi 7 sets PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
+      <li><a href="pdfs/English 8 sets 2025 PYQs UP board merged.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
+    </ul>
+    <ul><li><span class="typewriter">Upload Date - 9 August 2025</span></li></ul>
+    
+    <h3 class="section-head green">📙 UP Board 2024 PYQs</h3>
+    <ul>
+      <li><a href="pdfs/Physics 6 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
+      <li><a href="pdfs/Chemistry 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
+      <li><a href="pdfs/Mathematics 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
+      <li><a href="pdfs/G Hindi 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
+      <li><a href="pdfs/English 7 sets 2024 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
+      <ul>
+        <ul><li><span class="typewriter">Upload Date - 15 August 2025</span></li></ul>
+
+    <h3 class="section-head yellow">📗 UP Board 2023 PYQs</h3>
+    <ul> 
+    <li><a href="pdfs/Physics 7 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
+    <li><a href="pdfs/Chemistry 7 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
+    <li><a href="pdfs/Mathematics 5 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
+    <li><a href="pdfs/G Hindi 6 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
+    <li><a href="pdfs/English 7 sets 2023 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
+  </ul> 
+    <ul><li><span class="typewriter">Upload Date - 31th July 2025</span></li></ul>
+
+    <h3 class="section-head red">📕 UP Board 2022 PYQs</h3>
+    <ul>
+      <li><a href="pdfs/Physics 6 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Physics PYQs</a></li>
+      <li><a href="pdfs/Chemistry 7 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Chemistry PYQs</a></li>
+      <li><a href="pdfs/Mathematics 4 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 Mathematics PYQs</a></li>
+      <li><a href="pdfs/G Hindi 7 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 General Hindi PYQs</a></li>
+      <li><a href="pdfs/English 6 sets 2022 PYQs UP board.pdf" onclick="notifyDownload(this)">📄 English PYQs</a></li>
+   </ul>
+    <ul><li><span class="typewriter">Upload Date - 31th July 2025</span></li></ul>
+      
+    <h3 class="section-head" style="background: linear-gradient(135deg, #ff6ec4, #7873f5);">📘 5 Subject Unsolved</h3>
+<ul>
+ <li><a href="pdfs/Physics Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 Physics Unsolved (2025–2022)</a></li>
+  <li><a href="pdfs/Chemistry Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 Chemistry Unsolved (2025–2022)</a></li>
+  <li><a href="pdfs/Mathematics Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 Mathematics Unsolved (2025–2022)</a></li>
+  <li><a href="pdfs/G Hindi Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 General Hindi Unsolved (2025–2022)</a></li>
+  <li><a href="pdfs/English Unsolved 2025-2022.pdf" onclick="notifyDownload(this)">📄 English Unsolved (2025–2022)</a></li>
+</ul>
+    <ul><li><span class="typewriter">Upload Date - 15 August 2025</span></li></ul>
+    <h3 class="section-head pink">📑 My Few Short Notes</h3>
+<ul>
+  <li>
+    <a href="pdfs/Ist Demo 1 to 5 Physics_Class12_Part1_Notes.pdf" onclick="notifyDownload(this)">
+      📄 Ist Demo: Physics Part 1 Notes (1 to 5)
+    </a>
+  </li>
+  <li>
+    <a href="pdfs/2nd Demo Physics_Class12_PYQ_Based_ShortNotes.pdf" onclick="notifyDownload(this)">
+      📄 2nd Demo: Physics PYQ Based Short Notes
+    </a>
+  </li>
+  <li><span class="typewriter">Coming Soon...10 October</span></li>
+</ul>
+ </div>
+  
+  <footer>&copy; 2025 Ayush Vishwakarma</footer>
+  <button id="darkToggle" onclick="toggleDarkMode()">🌗</button>
+
+  <script>
+    const titles = ["Web Developer", "App Developer", "UI/UX Designer"];
+    let i = 0;
+    setInterval(() => {
+      document.getElementById("loopTitle").textContent = titles[i];
+      i = (i + 1) % titles.length;
+    }, 2000);
+
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("timeDisplay").textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    function toggleDarkMode() {
+      const body = document.body;
+      const nameSpans = document.querySelectorAll('.rgb-name span');
+      body.classList.toggle("dark-mode");
+      nameSpans.forEach(span => {
+        if (body.classList.contains("dark-mode")) {
+          span.style.animation = "none";
+          span.style.color = "white";
+        } else {
+          span.style.animation = "rgb 2s infinite alternate";
+          span.style.color = "";
+        }
+      });
+    }
+
+    function togglePDFs() {
+      const section = document.getElementById("pdfSection");
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function notifyDownload(link) {
+      const notify = document.getElementById("notify");
+      notify.innerText = "⏳ Toda wait kr bhai...";
+      notify.style.display = "block";
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.download = '';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        notify.innerText = "✅ Ho gaya bhai!";
+        setTimeout(() => notify.style.display = "none", 2000);
+      }, 1000);
+    }
   </script>
 
-  <!-- Main script (must be last so DOM is ready) -->
-  <script src="js/script.js"></script>
+  <script>
+    const messages = ["Coming Soon...", "15th August", "Wait few days"];
+    const speed = 150;
+    const delay = 1500;
+    const eraseSpeed = 100;
+    const loopDelay = 1000;
 
+    let current = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let target;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      target = document.querySelector(".typewriter-text");
+      if (target) type();
+    });
+
+    function type() {
+      const currentMessage = messages[current];
+      if (isDeleting) {
+        target.textContent = currentMessage.substring(0, charIndex--);
+        if (charIndex < 0) {
+          isDeleting = false;
+          current = (current + 1) % messages.length;
+          setTimeout(type, loopDelay);
+        } else {
+          setTimeout(type, eraseSpeed);
+        }
+      } else {
+        target.textContent = currentMessage.substring(0, charIndex++);
+        if (charIndex <= currentMessage.length) {
+          setTimeout(type, speed);
+        } else {
+          isDeleting = true;
+          setTimeout(type, delay);
+        }
+      }
+    }
+  </script>
+<!-- 👇 AI Chat UI + Script | Paste before </body> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+  .ai-chat-icon {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 22px;
+    z-index: 999;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: pop-in 0.5s ease-out;
+  }
+
+  .ai-chat-box {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 90%;
+    max-width: 320px;
+    max-height: 70vh;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #aaa;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  .ai-chat-header {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .ai-chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    font-size: 14px;
+  }
+
+  .ai-chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  .ai-chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .ai-chat-input button {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .ai-message {
+    margin: 5px 0;
+    line-height: 1.4;
+  }
+
+  .ai-message.user {
+    text-align: right;
+    color: #333;
+  }
+
+  .ai-message.bot {
+    text-align: left;
+    color: #007bff;
+  }
+
+  @keyframes pop-in {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ai-chat-box {
+      right: 10px;
+      bottom: 100px;
+    }
+
+    .ai-chat-icon {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>
+
+<!-- Icon -->
+<div class="ai-chat-icon" onclick="toggleAIChat()">
+  💬
+</div>
+
+<!-- Chat Box -->
+<div class="ai-chat-box" id="aiChatBox">
+  <div class="ai-chat-header">AI Chat Assistant</div>
+  <div class="ai-chat-messages" id="aiMessages"></div>
+  <div class="ai-chat-input">
+    <input type="text" id="aiInput" placeholder="Ask me anything..." />
+    <button onclick="sendAIMessage()">Send</button>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  const aiBox = document.getElementById("aiChatBox");
+  const aiMessages = document.getElementById("aiMessages");
+  const aiInput = document.getElementById("aiInput");
+
+  function toggleAIChat() {
+    aiBox.style.display = aiBox.style.display === "flex" ? "none" : "flex";
+    aiBox.style.flexDirection = "column";
+  }
+
+  function sendAIMessage() {
+    const userMsg = aiInput.value.trim();
+    if (!userMsg) return;
+    appendMessage(userMsg, "user");
+    aiInput.value = "";
+    setTimeout(() => {
+      const botReply = getBotReply(userMsg);
+      appendMessage(botReply, "bot");
+    }, 1000);
+  }
+
+  function appendMessage(text, type) {
+    const msg = document.createElement("div");
+    msg.className = "ai-message " + type;
+    msg.textContent = text;
+    aiMessages.appendChild(msg);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+
+function getBotReply(input) {
+  const msg = input.toLowerCase();
+
+  // Keyword 1: "hello sir"
+  if (msg.includes("hello sir")) {
+    return "🔐 Welcome Admin Sir — Access Granted.\nYou are logged in as Admin.";
+  }
+
+  // Keyword 2: "😁"
+  if (msg.includes("😁")) {
+    return "🎉 Welcome Sir!\nThis website is officially open only for you🧚.";
+  }
+
+  // Keyword 3: Telegram guide
+  if (msg.includes("telegram")) {
+    return [
+      "📩 Telegram par message kaise bheje (step-by-step):",
+      "1) Telegram app kholo (ya Play Store se install karo).",
+      "2) Search bar me '@JoyAyush' type karo.",
+      "3) Profile open karke 'Message' par tap karo.",
+      "4) Apna message likho aur Send kar do.",
+      "",
+      "🔗 Direct link: https://t.me/JoyAyush"
+    ].join("\n");
+  }
+
+  // Keyword 4: Tawk.to support / live chat guide
+  if (
+    msg.includes("tawk") ||
+    msg.includes("support") ||
+    msg.includes("live chat") ||
+    msg.includes("contact admin") ||
+    msg.includes("admin se baat kaise kru") ||
+    msg.includes("helpdesk")
+  ) {
+    return [
+      "🟢 **Live Support (Tawk.to) kaise use kare:**",
+      "",
+      "1) Screen ke bottom-right me ek chat icon dikh raha hoga.",
+      "2) Us icon par click/tap karo.",
+      "3) Chat box open hote hi message type karo.",
+      "4) Agar admin online hoga → turant reply milega.",
+      "5) Agar admin offline hoga → aapka message save ho jayega.",
+      "",
+      "💡 Tip: Apna naam + issue likh dene se reply fast milta hai."
+    ].join("\n");
+  }
+
+  // Keyword 5: Admin Time
+  if (
+    msg.includes("time") ||
+    msg.includes("online") ||
+    msg.includes("aao")
+  ) {
+    return "⏳ Admin Online Time → **9:00 PM – 11:00 PM**.";
+  }
+
+  // Default message
+  return "Dear User,Our website is currently **temporarily closed** for important updates _ It will reopen on **1 March 2026** - Team Web";
+  }
+</script>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68df74842aef141952fce0f7/1j6kduabr';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
